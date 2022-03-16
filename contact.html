@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/56a8804a8a.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0">
+    <title>Concesionaria Mashin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png"></a>
+            <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()" aria-hidden="true"></i>
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">SOBRE NOSOTROS</a></li>
+                    <li><a href="">NUESTROS PRODUCTOS</a></li>
+                    <li><a href="">CONTACTOS</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()" aria-hidden="true"></i>
+        </nav>
+        <h1>Contactos</h1>
+    </section>
+
+<!--------- contactanos --------->
+
+<section class="location">
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1177.2424915989466!2d-73.07053872759413!3d7.0379414114235725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3e4cc9a622fbaed7!2zN8KwMDInMTUuNyJOIDczwrAwNCcxMy42Ilc!5e0!3m2!1ses!2sco!4v1647440020525!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+</section>
+
+<section class="contact-us">
+
+    <div class="row">
+        <div class="contact-col">
+            <div>
+                <i class="fa fa-home"></i>
+                <span>
+                    <h5>XYZ Road, ABC Building</h5>
+                    <p>Bangalore, Karnataka, IN</p>
+                </span>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <span>
+                    <h5>+1 10345678902</h5>
+                    <p>Monday to aturday, 10AM to 6PM</p>
+                </span>
+            </div>
+            <div>
+                <i class="fa fa-envelope-o"></i>
+                <span>
+                    <h5>info@easytutorialspro.com</h5>
+                    <p>Email us in your query</p>
+                </span>
+            </div>
+        </div>
+        <div class="contact-col"></div>
+    </div>
+
+</section>
+    
+<!---------Footer--------->
+
+<section class="footer">
+    <h4>Sobre nosotros</h4>
+    <p>Aparte de nuestros contactos con nuestros trabajadores, tambien <br>puede ver nuestras redes sociales para poder saber mas sobre nosotros.</p>
+    <div class="icons">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+    </div>
+</section>
+
+<!------JavaScript for Toggle Menu------>
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px"
+    }
+
+</script>
+
+
+</body>
+</html>
