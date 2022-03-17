@@ -141,6 +141,11 @@ p{
     display: flex;
     justify-content: space-between;
 }
+
+.contac-col{
+    display: inline-block;
+}
+
 .course-col{
     flex-basis: 31%;
     background: #fff3f3;
@@ -327,6 +332,14 @@ h3{
 }
 
 /*-----------about us-------------*/
+
+#row {
+    margin-top: 5%;
+    display: inline;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
 
 .sub-header{
     height: 50vh;
