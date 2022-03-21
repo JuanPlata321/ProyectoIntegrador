@@ -63,15 +63,9 @@ CREATE TABLE IF NOT EXISTS `EMPLEADO` (
   `DIRECCION` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia a la direccion de residencia del empleado que hace parte del personal de la concesionaria',
   `ESTADO_EMPLEADO` VARCHAR(20) NOT NULL COMMENT 'Este campo hace referencia al estado actual del empleado dentro del sistema de la concesionaria, este puede tomar los valores de activo, inactivo o fuera de servicio',
   `CONTRASENA` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia a la contraseña designada por un empleado para el acceso al sistema de la concesionaria con su perfil',
-  `TIPO_EMPLEADO_ID_TIPO_EMPLEADO` INT NOT NULL COMMENT 'Este campo ID representa el tipo de empleado de la concesionaria, es decir, si es asesor comercial, de direccion o gerencia, o si por el contrario es de caja',
   `DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA` INT NOT NULL COMMENT 'Este campo ID representa un area o departamento especifico de la concesionaria en el cual este empleado tiene designado para hacer sus labores, es decir, si es el area o departamento de asesoramiento comercial, de direccion o gerencia, o si por el contrario es el de caja',
   `ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO` INT NOT NULL,
   PRIMARY KEY (`ID_EMPLEADO`),
-  CONSTRAINT `fk_EMPLEADO_TIPO_EMPLEADO1`
-    FOREIGN KEY (`TIPO_EMPLEADO_ID_TIPO_EMPLEADO`)
-    REFERENCES `TIPO_EMPLEADO` (`ID_TIPO_EMPLEADO`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_EMPLEADO_DEPARTAMENTO_AREA1`
     FOREIGN KEY (`DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA`)
     REFERENCES `DEPARTAMENTO_AREA` (`ID_DEPARTAMENTO_AREA`)
@@ -260,21 +254,6 @@ CREATE INDEX `fk_ORDEN_COMPRA_has_VEHICULOS_VEHICULOS1_idx` ON `ORDEN_COMPRA_has
 
 CREATE INDEX `fk_ORDEN_COMPRA_has_VEHICULOS_ORDEN_COMPRA1_idx` ON `ORDEN_COMPRA_has_VEHICULOS` (`ORDEN_COMPRA_ID_ORDEN_COMPRA`);
 
-
--- -----------------------------------------------------
--- Creation table `TIPO_EMPLEADO`
--- -----------------------------------------------------
-
-DROP TABLE IF EXISTS `TIPO_EMPLEADO` ;
-
-CREATE TABLE IF NOT EXISTS `TIPO_EMPLEADO` (
-  `ID_TIPO_EMPLEADO` INT NOT NULL AUTO_INCREMENT COMMENT 'Este campo ID representa el tipo de empleado de la concesionaria, es decir, si es asesor comercial, de direccion o gerencia, o si por el contrario es de caja',
-  `DESCRIPCION` VARCHAR(250) NOT NULL COMMENT 'Este campo me permite especificar o exclarecer a que se refiere determinado ID para representar un tipo de empleado',
-  PRIMARY KEY (`ID_TIPO_EMPLEADO`))
-ENGINE = InnoDB
-COMMENT = 'Esta tabla permite almacenar los diferentes tipos de empleados que se manejan dentro de la concesionaria, es decir, asesores comerciales, direccion o gerencia y caja';
-
-
 -- -----------------------------------------------------
 -- Creation table `VEHICULOS`
 -- -----------------------------------------------------
@@ -318,8 +297,23 @@ END IF;
 END
 
 -- -----------------------------------------------------
+-- Definition of the trigger to calculate subtotal and total for a purchase order
+-- -----------------------------------------------------
+
+CREATE TRIGGER CALCULAR_SUBTOTAL_TOTAL_ORDEN_COMPRA AFTER INSERT ON ORDEN_COMPRA_HAS_VEHICULOS FOR EACH ROW
+BEGIN
+	SELECT VALOR_UNITARIO INTO @VALOR_VEHICULO FROM VEHICULOS WHERE ID_VEHICULOS = NEW.VEHICULOS_ID_VEHICULOS;
+	SELECT PORCENTAJE_DESCUENTOS, IMPUESTOS INTO @DESCUENTOS_ORDEN_COMPRA, @IMPUESTOS_ORDEN_COMPRA FROM ORDEN_COMPRA WHERE ID_ORDEN_COMPRA = NEW.ORDEN_COMPRA_ID_ORDEN_COMPRA;
+    IF @VALOR_VEHICULO != 0 THEN
+        UPDATE ORDEN_COMPRA SET SUBTOTAL = SUBTOTAL + @VALOR_VEHICULO, VALOR_TOTAL = ROUND(SUBTOTAL * (1 - @DESCUENTOS_ORDEN_COMPRA / 100) * (@IMPUESTOS_ORDEN_COMPRA / 100 + 1)) WHERE ID_ORDEN_COMPRA = NEW.ORDEN_COMPRA_ID_ORDEN_COMPRA;	
+    END IF;
+END;
+
+-- -----------------------------------------------------
 -- Insert the vehicle catalog
 -- -----------------------------------------------------
+
+SET GLOBAL local_infile = 'ON';
 
 LOAD DATA LOCAL INFILE 'D:/Upload/Vehicle_catalog.txt' INTO TABLE VEHICULOS
 FIELDS TERMINATED BY '\t'
