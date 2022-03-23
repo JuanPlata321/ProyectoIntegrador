@@ -5,20 +5,20 @@
 USE MASHINDATABASE;
 
 -- -----------------------------------------------------
--- Sentence for the search for a vehicle by brand
+-- Sentence for client a employee by name
 -- -----------------------------------------------------
 
-SET @SQLVEHICULOPORMARCA = 'SELECT * FROM VEHICULOS WHERE MARCA=?';
+SET @SQLCLIENTEPORNOMBRE = 'SELECT * FROM CLIENTE WHERE NOMBRE=?';
 
 -- -----------------------------------------------------
 -- Information entered by the user
 -- -----------------------------------------------------
 
-SET @LOGIN_MARCA = 'BMW';
+SET @LOGIN_NOMBRE = 'Juan Ramiro';
 
 -- -----------------------------------------------------
 -- Execution of the sentence
 -- -----------------------------------------------------
 
-PREPARE LOGIN FROM @SQLVEHICULOPORMARCA;
-EXECUTE LOGIN USING @LOGIN_MARCA;
+PREPARE LOGIN FROM @SQLCLIENTEPORNOMBRE;
+EXECUTE LOGIN USING @LOGIN_NOMBRE;

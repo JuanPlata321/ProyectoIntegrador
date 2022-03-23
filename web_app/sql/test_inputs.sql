@@ -68,6 +68,17 @@ INSERT INTO EMPLEADO (CEDULA, NOMBRE, APELLIDOS, CORREO_ELECTRONICO, CONTACTO, D
 VALUES ('1102724442', 'Carlos Julian', 'Guevara Serrano', 'CarlosGuevara2022@mashin.com', '3162051264', 'Carrera 15 # 33-55', 'Carlos1102724442*/', 3, 1);
 
 -- -----------------------------------------------------
+-- Insert and update into VEHICULO
+-- -----------------------------------------------------
+
+INSERT INTO VEHICULOS(MARCA, MODELO, AÑO, DESCRIPCION, TIPO, IMAGEN_URL, UNIDADES_STOCK, VALOR_UNITARIO) 
+VALUES ("Chevrolet", "Onix", "2018", "Configuration Combustion. Internal Combustion Engine. Displacement 1 l. Displacement 999 – 1389 cc.", "Sedan", "https://s1.cdn.autoevolution.com/images/gallery/CHEVROLETOnix-4681_1.jpg", 2, 50000000);
+
+UPDATE VEHICULOS
+SET MARCA = "Chevrolet", MODELO = "Onix", AÑO = "2018", DESCRIPCION = "Configuration Combustion. Internal Combustion Engine. Displacement 1 l. Displacement 999 – 1389 cc.", TIPO = "Sedan", IMAGEN_URL = "https://s1.cdn.autoevolution.com/images/gallery/CHEVROLETOnix-4681_1.jpg", UNIDADES_STOCK = 7, VALOR_UNITARIO = 50000000
+WHERE ID_VEHICULOS = 128;
+
+-- -----------------------------------------------------
 -- Insert into ORDEN_COMPRA
 -- -----------------------------------------------------
 
@@ -97,7 +108,7 @@ INSERT INTO ORDEN_COMPRA_HAS_VEHICULOS(ORDEN_COMPRA_ID_ORDEN_COMPRA, VEHICULOS_I
 VALUES (2, 70);
 
 INSERT INTO ORDEN_COMPRA_HAS_VEHICULOS(ORDEN_COMPRA_ID_ORDEN_COMPRA, VEHICULOS_ID_VEHICULOS) 
-VALUES (3, 2);
+VALUES (3, 5);
 
 -- -----------------------------------------------------
 -- Insert into FACTURA
@@ -120,6 +131,8 @@ VALUES (NOW(), "NIT: 7445722532, Direccion: Km. 7 vía Piedecuesta", 2);
 -- SELECT * FROM orden_compra_has_vehiculos;
 -- SELECT * FROM orden_compra;
 -- SELECT * FROM vehiculos;
+-- SELECT * FROM REGISTRO_MOVIMIENTO_VEHICULOS;
+
 -- SELECT VALOR_UNITARIO FROM vehiculos WHERE ID_VEHICULOS = 2;
 
 -- UPDATE ORDEN_COMPRA SET SUBTOTAL=78509716, VALOR_TOTAL=74741250 WHERE ID_ORDEN_COMPRA = 3;
