@@ -1,0 +1,176 @@
+!
+! Last configuration change at 12:29:52 UTC Tue Jan 3 2006
+! NVRAM config last updated at 09:05:13 UTC Tue Jan 3 2006
+! NVRAM config last updated at 09:05:13 UTC Tue Jan 3 2006
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Mashin
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+dot11 syslog
+ip source-route
+!
+!
+!
+ip dhcp pool ip2
+ network 172.16.129.0 255.255.255.240
+ dns-server 172.16.129.1 172.16.129.34
+ default-router 172.16.129.1
+!
+ip dhcp pool ip3
+ network 172.16.129.16 255.255.255.248
+ dns-server 172.16.129.17 172.16.129.34
+ default-router 172.16.129.17
+!
+ip dhcp pool ip4
+ network 172.16.129.24 255.255.255.248
+ dns-server 172.16.129.25 172.16.129.34
+ default-router 172.16.129.25
+!
+ip dhcp pool ip5
+ network 172.16.129.40 255.255.255.248
+ dns-server 172.16.129.41 172.16.129.34
+ default-router 172.16.129.41
+!
+!
+!
+ip cef
+ip domain name mashin.com.co
+ipv6 unicast-routing
+ipv6 cef
+ipv6 dhcp pool ip2
+ dns-server 2801:0:2E0:100:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip3
+ dns-server 2801:0:2E0:200:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip4
+ dns-server 2801:0:2E0:300:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip5
+ dns-server 2801:0:2E0:500:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+!
+multilink bundle-name authenticated
+!
+crypto pki token default removal timeout 0
+!
+!
+!
+!
+license udi pid CISCO1841 sn FTX1405Y2KT
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 172.16.128.1 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address 2801:0:2E0::/64 eui-64
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1.2
+ encapsulation dot1Q 2
+ ip address 172.16.129.1 255.255.255.240
+ ipv6 address 2801:0:2E0:100::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip2
+!
+interface FastEthernet0/1.3
+ encapsulation dot1Q 3
+ ip address 172.16.129.17 255.255.255.248
+ ipv6 address 2801:0:2E0:200::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip3
+!
+interface FastEthernet0/1.4
+ encapsulation dot1Q 4
+ ip address 172.16.129.25 255.255.255.248
+ ipv6 address 2801:0:2E0:300::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip4
+!
+interface FastEthernet0/1.5
+ encapsulation dot1Q 5
+ ip address 172.16.129.41 255.255.255.248
+ ipv6 address 2801:0:2E0:500::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip5
+!
+interface FastEthernet0/1.6
+ encapsulation dot1Q 6
+ ip address 172.16.129.33 255.255.255.248
+ ipv6 address 2801:0:2E0:400::/64 eui-64
+!
+interface Serial0/0/0
+ ip address 172.16.138.17 255.255.255.252
+ shutdown
+ ipv6 address 2801:0:2E0:600::/64 eui-64
+ no fair-queue
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip dns server
+!
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+banner motd ^CCCC
+Hola, la contrasena es: cisco
+^C
+!
+line con 0
+ password cisco
+ login
+line aux 0
+line vty 0 4
+ password cisco
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+end
