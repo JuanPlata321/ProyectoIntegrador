@@ -436,3 +436,16 @@ h3{
 textarea{
     font-size: 14px;
 }
+.datos-col{
+    flex-basis: 100%;
+    padding: 30px 2px;
+}
+.datos-us{
+    width: 50%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.datos-col h1{
+    padding-top: 0;
+}
