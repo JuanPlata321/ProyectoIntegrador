@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../js/login.js">
+  <link rel="stylesheet" href="../js/app.js">
+  <title>Formulario Registro</title>
+</head>
+<body>
+  <section class="form-register">
+    <form action="/auth" method="POST"> 
+      <h4>Ingresar</h4>
+      <input class="controls" type="text" name="user" id="user" placeholder="Ingrese su usuario">
+      <input class="controls" type="password" name="pass" id="pass" placeholder="Ingrese su contraseña">
+      <nav>
+        <a href="./html/vistaUsuario.html"><input class="botons" type="submit" id="enviar" value="Entrar como empleado">
+        <a href="./html/vistaAdmin.html"><input class="botons" type="submit" value="Entrar como administrador">
+      </nav>
+    </form>
+  </section>
+</body>
+</html>

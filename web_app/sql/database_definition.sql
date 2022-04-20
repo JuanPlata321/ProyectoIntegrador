@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `EMPLEADO` (
   `CORREO_ELECTRONICO` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al correo electronico de un empleado, este correo pertenece dominio de la concesionaria',
   `CONTACTO` VARCHAR(15) NULL COMMENT 'Este campo hace referencia al numero de contacto del empleado que hace parte de la concesionaria, este numero de contacto puede ser bien sea numero de telefono fijo o celular',
   `DIRECCION` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia a la direccion de residencia del empleado que hace parte del personal de la concesionaria',
-  `CONTRASENA` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia a la contraseña designada por un empleado para el acceso al sistema de la concesionaria con su perfil',
+  `CONTRASENA` VARCHAR(256) NOT NULL COMMENT 'Este campo hace referencia a la contraseña designada por un empleado para el acceso al sistema de la concesionaria con su perfil',
   `DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA` INT NOT NULL COMMENT 'Este campo ID representa un area o departamento especifico de la concesionaria en el cual este empleado tiene designado para hacer sus labores, es decir, si es el area o departamento de asesoramiento comercial, de direccion o gerencia, o si por el contrario es el de caja',
   `ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO` INT NOT NULL,
   PRIMARY KEY (`ID_EMPLEADO`),

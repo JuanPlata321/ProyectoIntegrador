@@ -1,7 +1,7 @@
 !
-! Last configuration change at 12:29:52 UTC Tue Jan 3 2006
-! NVRAM config last updated at 09:05:13 UTC Tue Jan 3 2006
-! NVRAM config last updated at 09:05:13 UTC Tue Jan 3 2006
+! Last configuration change at 12:37:15 UTC Mon Jan 2 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -45,6 +45,24 @@ ip dhcp pool ip5
 !
 ip cef
 ip domain name mashin.com.co
+ip host jhonAsesor.mashin.com.co ns 172.16.129.34
+ip host jhonAsesor.mashin.com.co ns 172.16.129.6
+ip host mashin.com.co ns dns1.mashin.com.co
+ip host mashin.com.co ns dns2.mashin.com.co
+ip host dns2.mashin.com.co ns 172.16.129.34
+ip host www.mashin.com.co ns 172.16.129.34
+ip host web.mashin.com.co ns 172.16.129.34
+ip host ftp.mashin.com.co ns 172.16.129.34
+ip host intranet.mashin.com.co ns 172.16.129.34
+ip host juanAsesor.mashin.com.co ns 172.16.129.2
+ip host javierAsesor.mashin.com.co ns 172.16.129.3
+ip host cristianAsesor.mashin.com.co ns 172.16.129.4
+ip host pedroAsesor.mashin.com.co ns 172.16.129.5
+ip host mariaAsesora.mashin.com.co ns 172.16.129.7
+ip host elviaAsesora.mashin.com.co ns 172.16.129.8
+ip host leninDirector.mashin.com.co ns 172.16.129.26
+ip host danithDirectora.mashin.com.co ns 172.16.129.27
+ip name-server 172.16.129.34
 ipv6 unicast-routing
 ipv6 cef
 ipv6 dhcp pool ip2
@@ -75,7 +93,7 @@ crypto pki token default removal timeout 0
 !
 !
 !
-license udi pid CISCO1841 sn FTX1405Y2KT
+license udi pid CISCO1841 sn FTX1405Y2LE
 !
 redundancy
 !
@@ -133,12 +151,10 @@ interface FastEthernet0/1.6
 !
 interface Serial0/0/0
  ip address 172.16.138.17 255.255.255.252
- shutdown
  ipv6 address 2801:0:2E0:600::/64 eui-64
  no fair-queue
- clock rate 2000000
 !
-interface Serial0/0/1
+interface Serial0/1/0
  no ip address
  shutdown
  clock rate 2000000
@@ -149,6 +165,7 @@ no ip http secure-server
 !
 !
 ip dns server
+ip dns primary mashin.com.co soa dns1.mashin.com.co correo.mashin.com.co 21600 900 7776000 86400
 !
 !
 !
@@ -159,7 +176,7 @@ ip dns server
 control-plane
 !
 !
-banner motd ^CCCC
+banner motd ^CCCCC
 Hola, la contrasena es: cisco
 ^C
 !
