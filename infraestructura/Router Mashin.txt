@@ -1,5 +1,25 @@
+
+
+
+Press RETURN to get started.
+
+
+
+CCCC
+Hola, la contrasena es: cisco
+
+
+User Access Verification
+
+Password:
+Mashin>en
+Mashin>enable
+Mashin#sh run
+Building configuration...
+
+Current configuration : 4084 bytes
 !
-! Last configuration change at 12:37:15 UTC Mon Jan 2 2006
+! Last configuration change at 13:07:10 UTC Mon Jan 2 2006
 ! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
 ! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
 version 15.1
@@ -45,10 +65,10 @@ ip dhcp pool ip5
 !
 ip cef
 ip domain name mashin.com.co
-ip host jhonAsesor.mashin.com.co ns 172.16.129.34
-ip host jhonAsesor.mashin.com.co ns 172.16.129.6
 ip host mashin.com.co ns dns1.mashin.com.co
 ip host mashin.com.co ns dns2.mashin.com.co
+ip host jhonAsesor.mashin.com.co ns 172.16.129.34
+ip host jhonAsesor.mashin.com.co ns 172.16.129.6
 ip host dns2.mashin.com.co ns 172.16.129.34
 ip host www.mashin.com.co ns 172.16.129.34
 ip host web.mashin.com.co ns 172.16.129.34
@@ -165,7 +185,6 @@ no ip http secure-server
 !
 !
 ip dns server
-ip dns primary mashin.com.co soa dns1.mashin.com.co correo.mashin.com.co 21600 900 7776000 86400
 !
 !
 !
@@ -191,3 +210,946 @@ line vty 0 4
 !
 scheduler allocate 20000 1000
 end
+
+Mashin#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mashin con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+CCCC
+Hola, la contrasena es: cisco
+
+
+User Access Verification
+
+Password:
+Password:
+Mashin>en
+Mashin>enable
+Mashin#ping www.mashin.com.co
+Translating "www.mashin.com.co"...domain server (172.16.129.34)
+
+Translating "www.mashin.com.co"...domain server (172.16.129.34) [OK]
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.129.34, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+Mashin#ping web.mashin.com.co
+Translating "web.mashin.com.co"...domain server (172.16.129.34)
+
+Translating "web.mashin.com.co"...domain server (172.16.129.34) [OK]
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.129.34, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+Mashin#sh run
+Building configuration...
+
+Current configuration : 4084 bytes
+!
+! Last configuration change at 13:07:10 UTC Mon Jan 2 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Mashin
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+dot11 syslog
+ip source-route
+!
+!
+!
+ip dhcp pool ip2
+ network 172.16.129.0 255.255.255.240
+ dns-server 172.16.129.1 172.16.129.34
+ default-router 172.16.129.1
+!
+ip dhcp pool ip3
+ network 172.16.129.16 255.255.255.248
+ dns-server 172.16.129.17 172.16.129.34
+ default-router 172.16.129.17
+!
+ip dhcp pool ip4
+ network 172.16.129.24 255.255.255.248
+ dns-server 172.16.129.25 172.16.129.34
+ default-router 172.16.129.25
+!
+ip dhcp pool ip5
+ network 172.16.129.40 255.255.255.248
+ dns-server 172.16.129.41 172.16.129.34
+ default-router 172.16.129.41
+!
+!
+!
+ip cef
+ip domain name mashin.com.co
+ip host mashin.com.co ns dns1.mashin.com.co
+ip host mashin.com.co ns dns2.mashin.com.co
+ip host jhonAsesor.mashin.com.co ns 172.16.129.34
+ip host jhonAsesor.mashin.com.co ns 172.16.129.6
+ip host dns2.mashin.com.co ns 172.16.129.34
+ip host www.mashin.com.co ns 172.16.129.34
+ip host web.mashin.com.co ns 172.16.129.34
+ip host ftp.mashin.com.co ns 172.16.129.34
+ip host intranet.mashin.com.co ns 172.16.129.34
+ip host juanAsesor.mashin.com.co ns 172.16.129.2
+ip host javierAsesor.mashin.com.co ns 172.16.129.3
+ip host cristianAsesor.mashin.com.co ns 172.16.129.4
+ip host pedroAsesor.mashin.com.co ns 172.16.129.5
+ip host mariaAsesora.mashin.com.co ns 172.16.129.7
+ip host elviaAsesora.mashin.com.co ns 172.16.129.8
+ip host leninDirector.mashin.com.co ns 172.16.129.26
+ip host danithDirectora.mashin.com.co ns 172.16.129.27
+ip name-server 172.16.129.34
+ipv6 unicast-routing
+ipv6 cef
+ipv6 dhcp pool ip2
+ dns-server 2801:0:2E0:100:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip3
+ dns-server 2801:0:2E0:200:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip4
+ dns-server 2801:0:2E0:300:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip5
+ dns-server 2801:0:2E0:500:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+!
+multilink bundle-name authenticated
+!
+crypto pki token default removal timeout 0
+!
+!
+!
+!
+license udi pid CISCO1841 sn FTX1405Y2LE
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 172.16.128.1 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address 2801:0:2E0::/64 eui-64
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1.2
+ encapsulation dot1Q 2
+ ip address 172.16.129.1 255.255.255.240
+ ipv6 address 2801:0:2E0:100::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip2
+!
+interface FastEthernet0/1.3
+ encapsulation dot1Q 3
+ ip address 172.16.129.17 255.255.255.248
+ ipv6 address 2801:0:2E0:200::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip3
+!
+interface FastEthernet0/1.4
+ encapsulation dot1Q 4
+ ip address 172.16.129.25 255.255.255.248
+ ipv6 address 2801:0:2E0:300::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip4
+!
+interface FastEthernet0/1.5
+ encapsulation dot1Q 5
+ ip address 172.16.129.41 255.255.255.248
+ ipv6 address 2801:0:2E0:500::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip5
+!
+interface FastEthernet0/1.6
+ encapsulation dot1Q 6
+ ip address 172.16.129.33 255.255.255.248
+ ipv6 address 2801:0:2E0:400::/64 eui-64
+!
+interface Serial0/0/0
+ ip address 172.16.138.17 255.255.255.252
+ ipv6 address 2801:0:2E0:600::/64 eui-64
+ no fair-queue
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip dns server
+!
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+banner motd ^CCCCC
+Hola, la contrasena es: cisco
+^C
+!
+line con 0
+ password cisco
+ login
+line aux 0
+line vty 0 4
+ password cisco
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+end
+
+Mashin#
+Mashin#iny look
+Mashin#conf
+Mashin#configure
+Mashin#configure
+Mashin#configure
+Configuring from terminal, memory, or network [terminal]?
+Enter configuration commands, one per line.  End with CNTL/Z.
+Mashin(config)#int
+Mashin(config)#int loo
+Mashin(config)#int loopback 1
+Mashin(config-if)#
+Jan  3 03:59:08.756: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback1,
+                  ^
+% Invalid input detected at '^' marker.
+
+Mashin(config-if)#ip add
+Mashin(config-if)#ip address 172.16.138.17/30
+                                          ^
+% Invalid input detected at '^' marker.
+
+Mashin(config-if)#ip address 172.16.138.17 255.255.255.252
+% 172.16.138.16 overlaps with Serial0/0/0
+Mashin(config-if)#ip address 172.16.138.18 255.255.255.252
+% 172.16.138.16 overlaps with Serial0/0/0
+Mashin(config-if)#exit
+Mashin(config)#acce
+Mashin(config)#access-list 1 permit 172.16.129.0 255.255.255.240
+Mashin(config)#access-list 1 permit 172.16.129.16 255.255.255.248
+Mashin(config)#access-list 1 permit 172.16.129.24 255.255.255.248
+Mashin(config)#access-list 1 permit 172.16.129.40 255.255.255.248
+Mashin(config)#ip na insB?
+% Ambiguous command:  "ip na insB"
+Mashin(config)#ip n|
+Mashin(config)#ip n
+Mashin(config)#ip
+Mashin(config)#ip nat
+Mashin(config)#ip nat  in
+Mashin(config)#ip nat  inside  source
+Mashin(config)#ip nat  inside  source list
+Mashin(config)#ip nat  inside  source list 1 inter
+Mashin(config)#ip nat  inside  source list 1 interface s0/0/0overl
+Mashin(config)#ip nat  inside  source list 1 interface s0/0/0 over
+Mashin(config)#ip nat  inside  source list 1 interface s0/0/0 overload
+Mashin(config)#
+Jan  3 04:16:19.403: %LINEPROTO-5-UPDOWN: Line protocol on Interface NVI0, chang
+Mashin(config)#inter
+Mashin(config)#interface inte
+Mashin(config)#interface fa0/1
+Mashin(config-if)#ip nat ind
+Mashin(config-if)#ip nat ins
+Mashin(config-if)#ip nat inside
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#
+Mashin(config-if)#ip nat inside
+Mashin(config-if)#exit
+Mashin(config)#inte
+Mashin(config)#interface s0/0/0
+Mashin(config-if)#ip nat outsi
+Mashin(config-if)#ip nat outside
+Mashin(config-if)#exit
+Mashin(config)#exit
+Mashin#sh
+Jan  3 04:25:36.539: %SYS-5-CONFIG_I: Configured from console by console run
+Building configuration...
+
+Current configuration : 4353 bytes
+!
+! Last configuration change at 04:25:36 UTC Tue Jan 3 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Mashin
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+dot11 syslog
+ip source-route
+!
+!
+!
+ip dhcp pool ip2
+ network 172.16.129.0 255.255.255.240
+ dns-server 172.16.129.1 172.16.129.34
+ default-router 172.16.129.1
+!
+ip dhcp pool ip3
+ network 172.16.129.16 255.255.255.248
+ dns-server 172.16.129.17 172.16.129.34
+ default-router 172.16.129.17
+!
+ip dhcp pool ip4
+ network 172.16.129.24 255.255.255.248
+ dns-server 172.16.129.25 172.16.129.34
+ default-router 172.16.129.25
+!
+ip dhcp pool ip5
+ network 172.16.129.40 255.255.255.248
+ dns-server 172.16.129.41 172.16.129.34
+ default-router 172.16.129.41
+!
+!
+!
+ip cef
+ip domain name mashin.com.co
+ip host juanAsesor.mashin.com.co ns 172.16.129.2
+ip host mashin.com.co ns dns1.mashin.com.co
+ip host mashin.com.co ns dns2.mashin.com.co
+ip host jhonAsesor.mashin.com.co ns 172.16.129.34
+ip host jhonAsesor.mashin.com.co ns 172.16.129.6
+ip host dns2.mashin.com.co ns 172.16.129.34
+ip host www.mashin.com.co ns 172.16.129.34
+ip host web.mashin.com.co ns 172.16.129.34
+ip host ftp.mashin.com.co ns 172.16.129.34
+ip host intranet.mashin.com.co ns 172.16.129.34
+ip host javierAsesor.mashin.com.co ns 172.16.129.3
+ip host cristianAsesor.mashin.com.co ns 172.16.129.4
+ip host pedroAsesor.mashin.com.co ns 172.16.129.5
+ip host mariaAsesora.mashin.com.co ns 172.16.129.7
+ip host elviaAsesora.mashin.com.co ns 172.16.129.8
+ip host leninDirector.mashin.com.co ns 172.16.129.26
+ip host danithDirectora.mashin.com.co ns 172.16.129.27
+ip name-server 172.16.129.34
+ipv6 unicast-routing
+ipv6 cef
+ipv6 dhcp pool ip2
+ dns-server 2801:0:2E0:100:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip3
+ dns-server 2801:0:2E0:200:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip4
+ dns-server 2801:0:2E0:300:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip5
+ dns-server 2801:0:2E0:500:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+!
+multilink bundle-name authenticated
+!
+crypto pki token default removal timeout 0
+!
+!
+!
+
+Mashin#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Mashin(config)#ip dns server
+Mashin(config)#no ip host juanAsesor.mashin.com.co ns 172.16.129.2
+Mashin(config)#ip host mashin.com.co ns dns1.mashin.com.co
+Mashin(config)#no ip host mashin.com.co ns dns1.mashin.com.co
+Mashin(config)#no ip host mashin.com.co ns dns2.mashin.com.co
+Mashin(config)#no ip host jhonAsesor.mashin.com.co ns 172.16.129.34
+Mashin(config)#no ip name-server 172.16.129.34
+Mashin(config)#$.142.17 172.16.142.1 172.16.142.5 172.16.142.9 172.16.142.13
+Mashin(config)#exit
+Mashin#sh
+Jan  3 04:42:41.147: %SYS-5-CONFIG_I: Configured from console by consolerun
+Building configuration...
+
+Current configuration : 4279 bytes
+!
+! Last configuration change at 04:42:41 UTC Tue Jan 3 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Mashin
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+dot11 syslog
+ip source-route
+!
+!
+!
+ip dhcp pool ip2
+ network 172.16.129.0 255.255.255.240
+ dns-server 172.16.129.1 172.16.129.34
+ default-router 172.16.129.1
+!
+ip dhcp pool ip3
+ network 172.16.129.16 255.255.255.248
+ dns-server 172.16.129.17 172.16.129.34
+ default-router 172.16.129.17
+!
+ip dhcp pool ip4
+ network 172.16.129.24 255.255.255.248
+ dns-server 172.16.129.25 172.16.129.34
+ default-router 172.16.129.25
+!
+ip dhcp pool ip5
+ network 172.16.129.40 255.255.255.248
+ dns-server 172.16.129.41 172.16.129.34
+ default-router 172.16.129.41
+!
+!
+!
+ip cef
+ip domain name mashin.com.co
+ip host jhonAsesor.mashin.com.co ns 172.16.129.6
+ip host dns2.mashin.com.co ns 172.16.129.34
+ip host www.mashin.com.co ns 172.16.129.34
+ip host web.mashin.com.co ns 172.16.129.34
+ip host ftp.mashin.com.co ns 172.16.129.34
+ip host intranet.mashin.com.co ns 172.16.129.34
+ip host javierAsesor.mashin.com.co ns 172.16.129.3
+ip host cristianAsesor.mashin.com.co ns 172.16.129.4
+ip host pedroAsesor.mashin.com.co ns 172.16.129.5
+ip host mariaAsesora.mashin.com.co ns 172.16.129.7
+ip host elviaAsesora.mashin.com.co ns 172.16.129.8
+ip host leninDirector.mashin.com.co ns 172.16.129.26
+ip host danithDirectora.mashin.com.co ns 172.16.129.27
+ip name-server 172.16.142.17
+ip name-server 172.16.142.1
+ip name-server 172.16.142.5
+ip name-server 172.16.142.9
+ip name-server 172.16.142.13
+ipv6 unicast-routing
+ipv6 cef
+ipv6 dhcp pool ip2
+ dns-server 2801:0:2E0:100:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+
+Mashin#no ip host jhonAsesor.mashin.com.co ns 172.16.129.6
+          ^
+% Invalid input detected at '^' marker.
+
+Mashin#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Mashin(config)#no ip host jhonAsesor.mashin.com.co ns 172.16.129.6
+Mashin(config)#no ip host dns2.mashin.com.co ns 172.16.129.34
+Mashin(config)#no ip host www.mashin.com.co ns 172.16.129.34
+Mashin(config)#no ip host web.mashin.com.co ns 172.16.129.34
+Mashin(config)#no ip host ftp.mashin.com.co ns 172.16.129.34
+Mashin(config)#no ip host intranet.mashin.com.co ns 172.16.129.34
+Mashin(config)#no ip host javierAsesor.mashin.com.co ns 172.16.129.3
+Mashin(config)#no ip host cristianAsesor.mashin.com.co ns 172.16.129.4
+Mashin(config)#no ip host pedroAsesor.mashin.com.co ns 172.16.129.5
+Mashin(config)#no ip host mariaAsesora.mashin.com.co ns 172.16.129.7
+Mashin(config)#no ip host elviaAsesora.mashin.com.co ns 172.16.129.8
+Mashin(config)#no ip host leninDirector.mashin.com.co ns 172.16.129.26
+Mashin(config)#no ip host danithDirectora.mashin.com.co ns 172.16.129.27
+Mashin(config)#ip host jhonAsesor.mashin.com.co 172.16.129.6
+Mashin(config)#ip host www.mashin.com.co 172.16.129.34
+Mashin(config)#ip host web.mashin.com.co 172.16.129.34
+Mashin(config)#ip host ftp.mashin.com.co 172.16.129.34
+Mashin(config)#ip host intranet.mashin.com.co 172.16.129.34
+Mashin(config)#ip host javierAsesor.mashin.com.co 172.16.129.3
+Mashin(config)#ip host cristianAsesor.mashin.com.co 172.16.129.4
+Mashin(config)#ip host pedroAsesor.mashin.com.co 172.16.129.5
+Mashin(config)#ip host mariaAsesora.mashin.com.co 172.16.129.7
+Mashin(config)#ip host elviaAsesora.mashin.com.co 172.16.129.8
+Mashin(config)#ip host leninDirector.mashin.com.co 172.16.129.26
+Mashin(config)#ip host danithDirectora.mashin.com.co 172.16.129.27
+Mashin(config)#ip host ernestoCaja.mashin.com.co 172.16.129.42
+Mashin(config)#ip host correo.mashin.com.co 172.16.129.34
+Mashin(config)#exit
+Mashin#sh run
+Building configuration...
+
+Jan  3 04:50:30.919: %SYS-5-CONFIG_I: Configured from console by console
+Current configuration : 4333 bytes
+!
+! Last configuration change at 04:50:30 UTC Tue Jan 3 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
+! NVRAM config last updated at 12:37:20 UTC Mon Jan 2 2006
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Mashin
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+dot11 syslog
+ip source-route
+!
+!
+!
+ip dhcp pool ip2
+ network 172.16.129.0 255.255.255.240
+ dns-server 172.16.129.1 172.16.129.34
+ default-router 172.16.129.1
+!
+ip dhcp pool ip3
+ network 172.16.129.16 255.255.255.248
+ dns-server 172.16.129.17 172.16.129.34
+ default-router 172.16.129.17
+!
+ip dhcp pool ip4
+ network 172.16.129.24 255.255.255.248
+ dns-server 172.16.129.25 172.16.129.34
+ default-router 172.16.129.25
+!
+ip dhcp pool ip5
+ network 172.16.129.40 255.255.255.248
+ dns-server 172.16.129.41 172.16.129.34
+ default-router 172.16.129.41
+!
+!
+!
+ip cef
+ip domain name mashin.com.co
+ip host web.mashin.com.co ns 172.16.129.34
+ip host jhonAsesor.mashin.com.co 172.16.129.6
+ip host www.mashin.com.co 172.16.129.34
+ip host svr.mashin.com.co 172.16.129.34
+ip host ftp.mashin.com.co 172.16.129.34
+ip host intranet.mashin.com.co 172.16.129.34
+ip host javierAsesor.mashin.com.co 172.16.129.3
+ip host cristianAsesor.mashin.com.co 172.16.129.4
+ip host pedroAsesor.mashin.com.co 172.16.129.5
+ip host mariaAsesora.mashin.com.co 172.16.129.7
+ip host elviaAsesora.mashin.com.co 172.16.129.8
+ip host leninDirector.mashin.com.co 172.16.129.26
+ip host danithDirectora.mashin.com.co 172.16.129.27
+ip host ernestoCaja.mashin.com.co 172.16.129.42
+ip host correo.mashin.com.co 172.16.129.34
+ip name-server 172.16.142.17
+ip name-server 172.16.142.1
+ip name-server 172.16.142.5
+ip name-server 172.16.142.9
+ip name-server 172.16.142.13
+ipv6 unicast-routing
+ipv6 cef
+ipv6 dhcp pool ip2
+
+Mashin#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Mashin(config)#ip host juanAsesor.mashin.com.co 172.16.129.2
+Mashin(config)#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mashin con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+Jan  3 05:03:02.803: %SYS-5-CONFIG_I: Configured from console by consoleCCCC
+Hola, la contrasena es: cisco
+
+
+User Access Verification
+
+Password:
+Mashin>enbale
+Translating "enbale"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.
+
+Translating "enbale"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.
+
+Translating "enbale"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.
+
+% Bad IP address or host name
+Translating "enbale"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.
+ (172.16.142.17) (172.16.142.1) (172.16.142.5) (172.16.142.9) (172.16.142.13)
+Translating "enbale"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.
+
+% Unknown command or computer name, or unable to find computer address
+Mashin>
+Mashin>
+Mashin>
+Mashin>
+Mashin>cv
+Translating "cv"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.5) (
+
+Translating "cv"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.5) (
+
+Translating "cv"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.5) (
+
+% Bad IP address or host name
+Translating "cv"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.5) (
+ (172.16.142.17) (172.16.142.1) (172.16.142.5) (172.16.142.9) (172.16.142.13)
+Translating "cv"...domain server (172.16.142.17) (172.16.142.1) (172.16.142.5) (172.16.142.9) (172.16.142.13)
+
+% Unknown command or computer name, or unable to find computer address
+Mashin>
+Mashin>
+
+Building configuration...
+
+Current configuration : 4222 bytes
+!
+! Last configuration change at 05:38:43 UTC Tue Jan 3 2006
+! NVRAM config last updated at 05:38:51 UTC Tue Jan 3 2006
+! NVRAM config last updated at 05:38:51 UTC Tue Jan 3 2006
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Mashin
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+dot11 syslog
+ip source-route
+!
+!
+!
+ip dhcp pool ip2
+ network 172.16.129.0 255.255.255.240
+ dns-server 172.16.129.1 172.16.129.34
+ default-router 172.16.129.1
+!
+ip dhcp pool ip3
+ network 172.16.129.16 255.255.255.248
+ dns-server 172.16.129.17 172.16.129.34
+ default-router 172.16.129.17
+!
+ip dhcp pool ip4
+ network 172.16.129.24 255.255.255.248
+ dns-server 172.16.129.25 172.16.129.34
+ default-router 172.16.129.25
+!
+ip dhcp pool ip5
+ network 172.16.129.40 255.255.255.248
+ dns-server 172.16.129.41 172.16.129.34
+ default-router 172.16.129.41
+!
+!
+!
+ip cef
+ip domain name mashin.com.co
+ip host web.mashin.com.co ns 172.16.129.34
+ip host jhonAsesor.mashin.com.co 172.16.129.6
+ip host www.mashin.com.co 172.16.129.34
+ip host svr.mashin.com.co 172.16.129.34
+ip host ftp.mashin.com.co 172.16.129.34
+ip host intranet.mashin.com.co 172.16.129.34
+ip host javierAsesor.mashin.com.co 172.16.129.3
+ip host cristianAsesor.mashin.com.co 172.16.129.4
+ip host pedroAsesor.mashin.com.co 172.16.129.5
+ip host mariaAsesora.mashin.com.co 172.16.129.7
+ip host elviaAsesora.mashin.com.co 172.16.129.8
+ip host leninDirector.mashin.com.co 172.16.129.26
+ip host danithDirectora.mashin.com.co 172.16.129.27
+ip host ernestoCaja.mashin.com.co 172.16.129.42
+ip host correo.mashin.com.co 172.16.129.34
+ip host juanAsesor.mashin.com.co 172.16.129.2
+ip name-server 172.16.142.17
+ip name-server 172.16.142.1
+ip name-server 172.16.142.5
+ip name-server 172.16.142.9
+ip name-server 172.16.142.13
+ipv6 unicast-routing
+ipv6 cef
+ipv6 dhcp pool ip2
+ dns-server 2801:0:2E0:100:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip3
+ dns-server 2801:0:2E0:200:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip4
+ dns-server 2801:0:2E0:300:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+ipv6 dhcp pool ip5
+ dns-server 2801:0:2E0:500:EE44:76FF:FE82:219B
+ dns-server 2801:0:2E0:400::1
+ domain-name mashin.com.co
+!
+!
+multilink bundle-name authenticated
+!
+crypto pki token default removal timeout 0
+!
+!
+!
+!
+license udi pid CISCO1841 sn FTX1405Y2LE
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback1
+ no ip address
+!
+interface FastEthernet0/0
+ ip address 172.16.128.1 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address 2801:0:2E0::/64 eui-64
+!
+interface FastEthernet0/1
+ no ip address
+ ip nat inside
+ ip virtual-reassembly in
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1.2
+ encapsulation dot1Q 2
+ ip address 172.16.129.1 255.255.255.240
+ ipv6 address 2801:0:2E0:100::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip2
+!
+interface FastEthernet0/1.3
+ encapsulation dot1Q 3
+ ip address 172.16.129.17 255.255.255.248
+ ipv6 address 2801:0:2E0:200::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip3
+!
+interface FastEthernet0/1.4
+ encapsulation dot1Q 4
+ ip address 172.16.129.25 255.255.255.248
+ ipv6 address 2801:0:2E0:300::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip4
+!
+interface FastEthernet0/1.5
+ encapsulation dot1Q 5
+ ip address 172.16.129.41 255.255.255.248
+ ipv6 address 2801:0:2E0:500::/64 eui-64
+ ipv6 nd other-config-flag
+ ipv6 dhcp server ip5
+!
+interface FastEthernet0/1.6
+ encapsulation dot1Q 6
+ ip address 172.16.129.33 255.255.255.248
+ ipv6 address 2801:0:2E0:400::/64 eui-64
+!
+interface Serial0/0/0
+ ip address 172.16.142.1 255.255.255.252
+ ip nat outside
+ ip virtual-reassembly in
+ ipv6 address 2801:2E0:E000::/127
+ no fair-queue
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip dns server
+!
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+banner motd ^CCCCC
+Hola, la contrasena es: cisco
+^C
+!
+line con 0
+ password cisco
+ login
+line aux 0
+line vty 0 4
+ password cisco
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+end
+
+Mashin#
