@@ -39,12 +39,17 @@ app.post("/auth", async(req, res) => {
 
     let encryptPassword = crypto.createHash("sha256").update(pass).digest('hex');
 
-    connection.query('SELECT ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO FROM EMPLEADO WHERE CORREO_ELECTRONICO = ? AND CONTRASENA = ?', [user, encryptPassword], async(error, results)=>{
+    connection.query('SELECT * FROM EMPLEADO WHERE CORREO_ELECTRONICO = ? AND CONTRASENA = ?', [user, encryptPassword], async(error, results)=>{
         if (results.length > 0){
             if (results[0].ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO == '1'){
-                res.sendFile('D:/User/Personal/Universidad/2.5 Quinto semestre/Proyecto integrador/Desarrollo/Implementación/Github Repository/web_app/html/vistaUsuario.html');
+                if (results[0].DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA == '1'){
+                    res.sendFile('D:/User/Personal/Universidad/2.5 Quinto semestre/Proyecto integrador/Desarrollo/Implementación/Github Repository/web_app/html/panelAdmin.html');
+                }else{
+                    res.sendFile('D:/User/Personal/Universidad/2.5 Quinto semestre/Proyecto integrador/Desarrollo/Implementación/Github Repository/web_app/html/panelUsuario.html');
+                }
             }else{
-                alert('Tu cuenta se encuentra actualmente dada de baja en el sistema, por favor contactate el personal de soporte técnico!');
+                res.sendFile('D:/User/Personal/Universidad/2.5 Quinto semestre/Proyecto integrador/Desarrollo/Implementación/Github Repository/web_app/html/login.html');
+                alert('Tu cuenta se encuentra actualmente actualmente en mantenimiento o dada de baja en el sistema, por favor contáctate el personal de soporte técnico!');
             }
         }else{
             res.sendFile('D:/User/Personal/Universidad/2.5 Quinto semestre/Proyecto integrador/Desarrollo/Implementación/Github Repository/web_app/html/login.html');
