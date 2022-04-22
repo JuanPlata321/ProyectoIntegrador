@@ -1,7 +1,7 @@
 !
-! Last configuration change at 05:38:43 UTC Tue Jan 3 2006
-! NVRAM config last updated at 05:38:51 UTC Tue Jan 3 2006
-! NVRAM config last updated at 05:38:51 UTC Tue Jan 3 2006
+! Last configuration change at 12:20:40 UTC Mon Jan 2 2006
+! NVRAM config last updated at 12:20:11 UTC Mon Jan 2 2006
+! NVRAM config last updated at 12:20:11 UTC Mon Jan 2 2006
 version 15.1
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -124,6 +124,8 @@ interface FastEthernet0/1
  duplex auto
  speed auto
 !
+interface FastEthernet0/1.1
+!
 interface FastEthernet0/1.2
  encapsulation dot1Q 2
  ip address 172.16.129.1 255.255.255.240
@@ -169,12 +171,21 @@ interface Serial0/1/0
  shutdown
  clock rate 2000000
 !
+router ospf 1
+ network 172.16.142.0 0.0.0.3 area 0
+ default-information originate
+!
 ip forward-protocol nd
 no ip http server
 no ip http secure-server
 !
 !
 ip dns server
+ip route 0.0.0.0 0.0.0.0 172.16.142.2
+!
+ipv6 route ::/0 Serial0/1/0
+ipv6 router ospf 1
+ router-id 172.16.142.2
 !
 !
 !
@@ -185,9 +196,7 @@ ip dns server
 control-plane
 !
 !
-banner motd ^CCCCC
-Hola, la contrasena es: cisco
-^C
+banner motd ^C^C
 !
 line con 0
  password cisco
