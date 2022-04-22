@@ -59,13 +59,13 @@ VALUES (3,'Departamento o area de caja');
 -- -----------------------------------------------------
 
 INSERT INTO EMPLEADO (CEDULA, NOMBRE, APELLIDOS, CORREO_ELECTRONICO, CONTACTO, DIRECCION, CONTRASENA ,DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA, ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO)
-VALUES ('7854088', 'Guillermo', 'Vera Ramirez', 'GuillermoVera2022@mashin.com', '3108769241', 'Calle 7 # 1-30 ', 'aaf95ed3e5aa02d08d433ff15772ca4c7e913fdcda8f15c141f50084c42e8d50', 1, 1); -- CONTRASENA: GuillermoVeraSoyYo
+VALUES ('7854088', 'Jhon', 'Galan Martinez', 'jhon.galan.2022@mashin.com.co', '3108769241', 'Calle 7 # 1-30 ', 'aaf95ed3e5aa02d08d433ff15772ca4c7e913fdcda8f15c141f50084c42e8d50', 1, 1); -- CONTRASENA: GuillermoVeraSoyYo
 
 INSERT INTO EMPLEADO (CEDULA, NOMBRE, APELLIDOS, CORREO_ELECTRONICO, CONTACTO, DIRECCION, CONTRASENA ,DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA, ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO)
-VALUES ('27540732', 'Maria Fernanda', 'Ruiz Ruiz', 'MariaRuiz2022@mashin.com', '3524989994', 'Carrera 27 # 54-60 piso 2', '98ab561f3d355f276faf71a58ae0f476538e5a3f0e25a565818cbf10b7ee52c6', 2, 1); -- CONTRASENA: mafe_Ruiz10
+VALUES ('27540732', 'Maria Fernanda', 'Ruiz Ruiz', 'maria.ruiz.2022@mashin.com.co', '3524989994', 'Carrera 27 # 54-60 piso 2', '98ab561f3d355f276faf71a58ae0f476538e5a3f0e25a565818cbf10b7ee52c6', 2, 1); -- CONTRASENA: mafe_Ruiz10
 
 INSERT INTO EMPLEADO (CEDULA, NOMBRE, APELLIDOS, CORREO_ELECTRONICO, CONTACTO, DIRECCION, CONTRASENA ,DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA, ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO)
-VALUES ('1102724442', 'Carlos Julian', 'Guevara Serrano', 'CarlosGuevara2022@mashin.com', '3162051264', 'Carrera 15 # 33-55', 'e37f6e4c7a3d3dd7d9a66b7746ab3a2f5a092ad4155221a7579964dfcc173824', 3, 1); -- CONTRASENA: Carlos1102724442*/
+VALUES ('1102724442', 'Elvia', 'Ballesteros Ballesteros', 'elvia.ballesteros.2022@mashin.com.co', '3162051264', 'Carrera 15 # 33-55', 'e37f6e4c7a3d3dd7d9a66b7746ab3a2f5a092ad4155221a7579964dfcc173824', 3, 1); -- CONTRASENA: Carlos1102724442*/
 
 -- -----------------------------------------------------
 -- Insert and update into VEHICULO

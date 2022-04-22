@@ -11,9 +11,10 @@
     background-size: cover;
     position: relative;
 }
+
 nav{
     display: flex;
-    padding: 2% 6%;
+    padding: 2% 6% 0 3%;
     justify-content: space-between;
     align-items: center;
 }
