@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `MashinDataBase`.`VEHICULOS` (
   `AÑO` VARCHAR(10) NOT NULL COMMENT 'Este campo hace referencia al año de lanzamiento del vehiculo',
   `DESCRIPCION` VARCHAR(250) NOT NULL COMMENT 'Este campo hace referencia a la descripcion completa del vehiculo que hace parte del catalogo, es decir, por ejemplo “Citroën C4 5P BlueHDi 150 Shine”.',
   `TIPO` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al tipo de vehiculo o grupo del cual hace parte un vehiculo del catalogo de la concesionaria, es decir, por ejemplo si es de tipo deportiivo, sedan, crossover, etc.',
-  `IMAGEN_URL` VARCHAR(100) NOT NULL COMMENT 'Este campo hace referencia a la imagen representativa de un vehiculo que hace parte del catalogo de la concesionaria',
+  `IMAGEN_URL` VARCHAR(250) NOT NULL COMMENT 'Este campo hace referencia a la imagen representativa de un vehiculo que hace parte del catalogo de la concesionaria',
   `UNIDADES_STOCK` INT UNSIGNED NOT NULL COMMENT 'Este campo hace referencia a las unidades disponibles o en stock de determinado vehiculo que hace parte del catologo de la concesionaria',
   `VALOR_UNITARIO` INT UNSIGNED NOT NULL COMMENT 'Este campo hace referencia al valor unitario o precio de determinado vehiculo que hace parte del catalogo de la concesionaria',
   PRIMARY KEY (`ID_VEHICULOS`))
@@ -36,27 +36,26 @@ COMMENT = 'Esta tabla permite almacenar los vehiculos que hacen parte del catalo
 
 
 -- -----------------------------------------------------
--- Table `MashinDataBase`.`CLIENTE`
+-- Table `MashinDataBase`.`CLIENTES`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `MashinDataBase`.`CLIENTE` ;
+DROP TABLE IF EXISTS `MashinDataBase`.`CLIENTES` ;
 
-CREATE TABLE IF NOT EXISTS `MashinDataBase`.`CLIENTE` (
+CREATE TABLE IF NOT EXISTS `MashinDataBase`.`CLIENTES` (
   `ID_CLIENTE` INT NOT NULL AUTO_INCREMENT COMMENT 'Este campo ID permite identificar el indice de un cliente dentro del conjunto de clientes de la concesionaria registrados en el sistema',
-  `CEDULA` VARCHAR(15) NOT NULL COMMENT 'Este campo hace referencia al numero de identificacion personal del cliente dentro del territorio nacional',
-  `NOMBRE` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al nombre o los nombres (En caso de ser mas de uno) de un cliente que hace parte de la concesionaria',
-  `APELLIDO` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al apellido (En caso de ser unicamente uno) o apellidos de un cliente que hace parte de la concesionaria',
+  `CEDULA_NIT` VARCHAR(15) NOT NULL COMMENT 'Este campo hace referencia al numero de identificacion personal del cliente dentro del territorio nacional',
+  `NOMBRES` VARCHAR(90) NOT NULL COMMENT 'Este campo hace referencia al nombre completo de un cliente que hace parte de la concesionaria, bien sea una persona o una empresa como tál',
   `CORREO_ELECTRONICO` VARCHAR(45) NULL COMMENT 'Este campo hace referencia al correo electronico de un cliente que pertenece a la concesionaria',
-  `CONTACTO` VARCHAR(15) NULL COMMENT 'Este campo hace referencia al numero de contacto del cliente que hace parte de la concesionaria, este numero de contacto puede ser bien sea numero de telefono fijo o celular',
+  `CONTACTO` VARCHAR(15) NOT NULL COMMENT 'Este campo hace referencia al numero de contacto del cliente que hace parte de la concesionaria, este numero de contacto puede ser bien sea numero de telefono fijo o celular',
   `DIRECCION` VARCHAR(70) NOT NULL COMMENT 'Este campo hace referencia a la direccion de residencia de un cliente que hace parte de la concesionaria',
   PRIMARY KEY (`ID_CLIENTE`))
 ENGINE = InnoDB
 COMMENT = 'Esta tabla permite almacenar los diferentes clientes que hacen parte de la concesionaria';
 
-CREATE UNIQUE INDEX `CEDULA_UNIQUE` ON `MashinDataBase`.`CLIENTE` (`CEDULA` ASC) VISIBLE;
+CREATE UNIQUE INDEX `CEDULA_UNIQUE` ON `MashinDataBase`.`CLIENTES` (`CEDULA_NIT` ASC) VISIBLE;
 
-CREATE UNIQUE INDEX `CORREO_ELECTRONICO_UNIQUE` ON `MashinDataBase`.`CLIENTE` (`CORREO_ELECTRONICO` ASC) VISIBLE;
+CREATE UNIQUE INDEX `CORREO_ELECTRONICO_UNIQUE` ON `MashinDataBase`.`CLIENTES` (`CORREO_ELECTRONICO` ASC) VISIBLE;
 
-CREATE UNIQUE INDEX `CONTACTO_UNIQUE` ON `MashinDataBase`.`CLIENTE` (`CONTACTO` ASC) VISIBLE;
+CREATE UNIQUE INDEX `CONTACTO_UNIQUE` ON `MashinDataBase`.`CLIENTES` (`CONTACTO` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -86,17 +85,17 @@ COMMENT = 'Esta tabla permite almacenar los diferentes estados de los empleados 
 
 
 -- -----------------------------------------------------
--- Table `MashinDataBase`.`EMPLEADO`
+-- Table `MashinDataBase`.`EMPLEADOS`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `MashinDataBase`.`EMPLEADO` ;
+DROP TABLE IF EXISTS `MashinDataBase`.`EMPLEADOS` ;
 
-CREATE TABLE IF NOT EXISTS `MashinDataBase`.`EMPLEADO` (
+CREATE TABLE IF NOT EXISTS `MashinDataBase`.`EMPLEADOS` (
   `ID_EMPLEADO` INT NOT NULL AUTO_INCREMENT COMMENT 'Este campo ID permite identificar el indice de un empleado dentro del conjunto de empleados o personal de la concesionaria',
   `CEDULA` VARCHAR(15) NOT NULL COMMENT 'Este campo hace referencia al numero de identificacion personal del empleado dentro del territorio nacional',
   `NOMBRES` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al nombre o los nombres (En caso de ser mas de uno) de un empleado que hace parte de la concesionaria',
   `APELLIDOS` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al apellido (En caso de ser unicamente uno) o los apellidos de un empleado que hace parte de la concesionaria',
   `CORREO_ELECTRONICO` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al correo electronico de un empleado, este correo pertenece dominio de la concesionaria',
-  `CONTACTO` VARCHAR(15) NULL COMMENT 'Este campo hace referencia al numero de contacto del empleado que hace parte de la concesionaria, este numero de contacto puede ser bien sea numero de telefono fijo o celular',
+  `CONTACTO` VARCHAR(15) NOT NULL COMMENT 'Este campo hace referencia al numero de contacto del empleado que hace parte de la concesionaria, este numero de contacto puede ser bien sea numero de telefono fijo o celular',
   `DIRECCION` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia a la direccion de residencia del empleado que hace parte del personal de la concesionaria',
   `CONTRASENA` VARCHAR(66) NOT NULL COMMENT 'Este campo hace referencia a la contraseña designada por un empleado para el acceso al sistema de la concesionaria con su perfil',
   `DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA` INT NOT NULL COMMENT 'Este campo ID representa un area o departamento especifico de la concesionaria en el cual este empleado tiene designado para hacer sus labores, es decir, si es el area o departamento de asesoramiento comercial, de direccion o gerencia, o si por el contrario es el de caja',
@@ -115,15 +114,15 @@ CREATE TABLE IF NOT EXISTS `MashinDataBase`.`EMPLEADO` (
 ENGINE = InnoDB
 COMMENT = 'Esta tabla permite almacenar los empleados que hacen parte del personal de la concesionaria';
 
-CREATE INDEX `fk_EMPLEADO_DEPARTAMENTO_AREA1_idx` ON `MashinDataBase`.`EMPLEADO` (`DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA` ASC) VISIBLE;
+CREATE INDEX `fk_EMPLEADO_DEPARTAMENTO_AREA1_idx` ON `MashinDataBase`.`EMPLEADOS` (`DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA` ASC) VISIBLE;
 
-CREATE UNIQUE INDEX `CEDULA_UNIQUE` ON `MashinDataBase`.`EMPLEADO` (`CEDULA` ASC) VISIBLE;
+CREATE UNIQUE INDEX `CEDULA_UNIQUE` ON `MashinDataBase`.`EMPLEADOS` (`CEDULA` ASC) VISIBLE;
 
-CREATE UNIQUE INDEX `CORREO_ELECTRONICO_UNIQUE` ON `MashinDataBase`.`EMPLEADO` (`CORREO_ELECTRONICO` ASC) VISIBLE;
+CREATE UNIQUE INDEX `CORREO_ELECTRONICO_UNIQUE` ON `MashinDataBase`.`EMPLEADOS` (`CORREO_ELECTRONICO` ASC) VISIBLE;
 
-CREATE UNIQUE INDEX `CONTACTO_UNIQUE` ON `MashinDataBase`.`EMPLEADO` (`CONTACTO` ASC) VISIBLE;
+CREATE UNIQUE INDEX `CONTACTO_UNIQUE` ON `MashinDataBase`.`EMPLEADOS` (`CONTACTO` ASC) VISIBLE;
 
-CREATE INDEX `fk_EMPLEADO_ESTADO_EMPLEADO1_idx` ON `MashinDataBase`.`EMPLEADO` (`ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO` ASC) VISIBLE;
+CREATE INDEX `fk_EMPLEADO_ESTADO_EMPLEADO1_idx` ON `MashinDataBase`.`EMPLEADOS` (`ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -140,16 +139,16 @@ CREATE TABLE IF NOT EXISTS `MashinDataBase`.`ORDEN_COMPRA` (
   `SUBTOTAL` INT UNSIGNED NOT NULL COMMENT 'Este campo hace referencia al valor parcial de la orden de compra, en este se suman el valor de todos los items de los productos que se ordenaron y se la aplican los impuestos definidos',
   `VALOR_TOTAL` INT UNSIGNED NOT NULL COMMENT 'Este campo hace referencia al valor total que el cliente debe cancelar a la concesionaria por los productos descritos en la orden de compra. El valor total es el resultado de aplicarle al valor subtotal el porcentaje de descuentos y otra serie de impuestos en casos de ser necesarios',
   `CLIENTE_ID_CLIENTE` INT NOT NULL COMMENT 'Este campo ID hace referencia al ID del cliente que solicita la orden de compra',
-  `EMPLEADO_ID_EMPLEADO` INT NOT NULL COMMENT 'Este campo ID hace referencia al ID del empleado que genera la orden de compra',
+  `EMPLEADOS_ID_EMPLEADO` INT NOT NULL,
   PRIMARY KEY (`ID_ORDEN_COMPRA`),
   CONSTRAINT `fk_ORDEN_COMPRA_CLIENTE1`
     FOREIGN KEY (`CLIENTE_ID_CLIENTE`)
-    REFERENCES `MashinDataBase`.`CLIENTE` (`ID_CLIENTE`)
+    REFERENCES `MashinDataBase`.`CLIENTES` (`ID_CLIENTE`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ORDEN_COMPRA_EMPLEADO1`
-    FOREIGN KEY (`EMPLEADO_ID_EMPLEADO`)
-    REFERENCES `MashinDataBase`.`EMPLEADO` (`ID_EMPLEADO`)
+  CONSTRAINT `fk_ORDEN_COMPRA_EMPLEADOS1`
+    FOREIGN KEY (`EMPLEADOS_ID_EMPLEADO`)
+    REFERENCES `MashinDataBase`.`EMPLEADOS` (`ID_EMPLEADO`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -157,7 +156,7 @@ COMMENT = 'Esta tabla permite almacenar las diferentes ordenes de compra que se 
 
 CREATE INDEX `fk_ORDEN_COMPRA_CLIENTE1_idx` ON `MashinDataBase`.`ORDEN_COMPRA` (`CLIENTE_ID_CLIENTE` ASC) VISIBLE;
 
-CREATE INDEX `fk_ORDEN_COMPRA_EMPLEADO1_idx` ON `MashinDataBase`.`ORDEN_COMPRA` (`EMPLEADO_ID_EMPLEADO` ASC) VISIBLE;
+CREATE INDEX `fk_ORDEN_COMPRA_EMPLEADOS1_idx` ON `MashinDataBase`.`ORDEN_COMPRA` (`EMPLEADOS_ID_EMPLEADO` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
