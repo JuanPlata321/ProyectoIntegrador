@@ -1,0 +1,23 @@
+interface range fa0/1-9
+switchport mode access
+switchport access vlan 2
+exit
+interface range fa0/10-13
+switchport mode access
+switchport access vlan 3
+exit
+interface range fa0/14-17
+switchport mode access
+switchport access vlan 4
+exit
+interface range fa0/18-19
+switchport mode access
+switchport access vlan 5
+exit
+interface range fa0/20-21
+switchport mode access
+switchport access vlan 6
+exit
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport trunk native vlan 1
