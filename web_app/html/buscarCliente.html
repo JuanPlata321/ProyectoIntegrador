@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../js/app.js">
+  <title>Concesionaria Mashin</title>
+</head>
+<body>
+	<section class="header">
+		<img id="logo" src="../images/logo.png">
+		<div id="searchitemPanel">
+            <h1>Clientes asociados a la concesionaria</h1>
+            <table id="tablaArticulos" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>CÉDULA / NIT</th>
+                        <th>NOMBRES</th>                                
+                        <th>APELLIDOS</th>
+                        <th>CORREO ELECTRONICO</th>
+                        <th>CONTACTO</th>                                
+                        <th>DIRECCCIÓN</th>                                               
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+	</section>
+    <script>
+        $(document).ready(function() {   
+            var url = 'http://localhost:443/getClients';
+       
+             $('#tablaArticulos').DataTable({            
+                 "ajax":{
+                     "url": url,
+                     "dataSrc":""
+                 },
+                 "columns":[
+                        {"data":"ID_CLIENTE"},
+                        {"data":"CEDULA"},
+                        {"data":"NOMBRE"},
+                        {"data":"APELLIDO"},
+                        {"data":"CORREO_ELECTRONICO"},
+                        {"data":"CONTACTO"},
+                        {"data":"DIRECCION"},
+                 ]
+             });
+       });
+    </script>
+</body>
+</html>

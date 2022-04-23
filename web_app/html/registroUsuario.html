@@ -1,44 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script language="JavaScript" src="md5.js"></script>
-<script language="JavaScript">
-numero = Math.random().toString();
-
-function calculaMD5() {
-var pw = document.forms["login"].elements["password"].value
-pw += numero
-return calcMD5(pw)
-}
-
-function enviaMD5(hash) {
-document.forms["login"].elements["cifrado"].value = hash;
-document.forms["login"].elements["numero"].value = numero;
-document.forms["login"].submit();
-}
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>Formulario Registro</title>
 </head>
 <body>
-  <section class="form-register">
-    <h4>Formulario Registro</h4>
-    <form action="registroU.php" name="database_definition" method="POST">
-    <input class="controls" type="text" name="ID_EMPLEADO" id="ID" placeholder="ID">
-    <input class="controls" type="text" name="NOMBREU" id="nombreusuario" placeholder="Nombre de usuario">
-    <input class="controls" type="text" name="NOMBRE" id="nombre" placeholder="Nombre">
-    <input class="controls" type="text" name="APELLIDOS" id="APELLIDOS" placeholder="Apellidos">
-    <input class="controls" type="text" name="CEDULA" id="cedula" placeholder="Cedula">
-    <input class="controls" type="text" name="DIRECCION" id="direccion" placeholder="Dirección">
-    <input class="controls" type="text" name="CONTACTO" id="telefono" placeholder="Telefono">
-    <input class="controls" type="password" name="CONTRASENA" id="CONTRASENA" placeholder="Ingrese su Contraseña">
+  <section class="header">
+    <img id="logo" src="../images/logo.png">
+    <div class="registerPanel">
+      <h1>Registrar usuario</h1>
+      <form action="/postUsers" method="POST">
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="identification" >
+          <span></span>
+          <label>Cédula</label>
+        </div>
 
-    <input class="botons" type="submit" value="Registrar">
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="name" >
+          <span></span>
+          <label>Nombres</label>
+        </div>
 
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="lastname" >
+          <span></span>
+          <label>Apellidos</label>
+        </div>
+        
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="contact" >
+          <span></span>
+          <label>Teléfono</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="address" >
+          <span></span>
+          <label>Dirección</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="email" required>
+          <span></span>
+          <label>Correo electrónico</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+          <input type="password" class="inputFieldRegister" name="pass" required>
+          <span></span>
+          <label>Contraseña</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+          <select class="inputFieldRegister" name="area">
+            <option value=1>Departamento de dirección o gerencia</option>
+            <option value=2>Departamento de asesoramiento comercial</option>
+            <option value=3>Departamento o area de caja</option>
+            <option value=0 selected></option>
+          </select>
+          <label id="areaText">Area asociada</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+          <select class="inputFieldRegister" name="status">
+            <option value=1>Activo dentro del sistema</option>
+            <option value=2>Inactivo dentro del sistema</option>
+            <option value=3>Fuera de servicio dentro del sistema</option>
+            <option selected></option>
+          </select>
+          <label id="areaText">Estado del usuario</label>
+        </div>
+
+        <input class="botons" type="submit" value="Registrar">
+      </form>
+    </div>
   </section>
-
 </body>
 </html>

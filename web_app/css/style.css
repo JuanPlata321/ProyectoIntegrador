@@ -211,3 +211,127 @@ input[type="submit"]:hover{
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
+/*Search item panel configuration*/
+
+#searchitemPanel{
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background: #fcfbff;
+    border-radius: 10px;
+    box-shadow: 7px 13px 37px #000;
+}
+#searchitemPanel h1{
+    color: #fff;
+    font: 750 normal 25px sans-serif;
+    text-align: center;
+    padding: 2% 0 20px 0;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #23395B;
+}
+#tablaArticulos{
+    margin-top: 3%;
+}
+#tablaArticulos thead{
+    background-color:#fcfbff;
+    color:#23395B;
+}
+
+/*policy panel configuration*/
+
+#policyContent{
+    width: 99.5%;
+    height: 89%;
+    margin-left: 0.5%;
+    overflow: auto;
+}
+
+/*Register panel configuration*/
+
+.registerPanel{
+    padding: 2% 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26%;
+    background-color: #fcfbff;
+    border-radius: 10px;
+    box-shadow: 7px 13px 37px #000;
+}
+.registerPanel h1{
+    color: #23395B;
+    font: 750 normal 25px sans-serif;
+    text-align: center;
+    padding: 0 0 20px 0;
+    /*border-bottom: 1px solid silver;*/
+}
+.registerPanel form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .txt_fieldRegister{
+    position: relative;
+    border-bottom: 2px solid #000;
+    margin: 4% 0;
+}
+.txt_fieldRegister{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.txt_fieldRegister label{
+    position: absolute;
+    top: 60%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+.inputFieldRegister{
+    margin: 3.5% 0;
+    height: 60%;
+    width: 100%;
+    border: none;
+    background-color: #fcfbff;
+}
+.txt_fieldRegister span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #23395B;
+    transition: .5s;
+}
+.txt_fieldRegister input:focus ~ label,
+.txt_fieldRegister input:valid ~ label{
+    top: -2px;
+    color: #adadad;
+}
+.txt_fieldRegister input:focus ~ span::before,
+.txt_fieldRegister input:valid ~ span::before{
+    width: 100%;
+}
+#areaText{
+    position: absolute;
+    top: 0%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}

@@ -4,20 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>Formulario Registro</title>
 </head>
 <body>
-  <section class="form-register">
-    <h4>Registro cliente</h4>
-    <form action="registroC.php" name="" method="POST">
-    <input class="controls" type="text" name="NOMBRE" id="nombresyapellidos" placeholder="Nombre y apellidos o razón juridica ">
-    <input class="controls" type="text" name="CEDULA" id="cedula" placeholder="Cedula o NIT">
-    <input class="controls" type="text" name="DIRECCION" id="direccion" placeholder="Dirección">
-    <input class="controls" type="text" name="CONTACTO" id="telefono" placeholder="Telefono">
+  <section class="header">
+    <img id="logo" src="../images/logo.png">
+    <div class="registerPanel">
+      <h1>Registrar cliente</h1>
+      <form action="/postClients" method="POST">
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="identification" required>
+          <span></span>
+          <label>Cédula o NIT</label>
+        </div>
 
-    <input class="botons" type="submit" value="Registrar">
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="name" required>
+          <span></span>
+          <label>Nombre completo o razón jurídica</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="email" required>
+          <span></span>
+          <label>Correo electrónico</label>
+        </div>
+        
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="contact" required>
+          <span></span>
+          <label>Teléfono</label>
+        </div>
+        
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="address" required>
+          <span></span>
+          <label>Dirección</label>
+        </div>
+        <input class="botons" type="submit" value="Registrar">
+      </form>
+    </div>
   </section>
-
 </body>
 </html>
