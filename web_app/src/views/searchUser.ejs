@@ -1,0 +1,52 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+    <img id="logo" src="../images/logo.png">
+    <div id="searchitemPanel">
+        <h1>Clientes asociados a la concesionaria</h1>
+        <table id="tablaArticulos" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>CÉDULA</th>
+                    <th>NOMBRES</th>                                
+                    <th>APELLIDOS</th>
+                    <th>CORREO ELECTRONICO</th>
+                    <th>CONTACTO</th>                                
+                    <th>DIRECCCIÓN</th>
+                    <th>CONTRASEÑA</th>
+                    <th>AREA ASOCIADA</th>
+                    <th>ESTADO</th>                                             
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</section>
+<!--<script>
+    $(document).ready(function() {   
+        var url = 'http://localhost:443/getUsers';
+    
+            $('#tablaArticulos').DataTable({            
+                "ajax":{
+                    "url": url,
+                    "dataSrc":""
+                },
+                "columns":[
+                    {"data":"ID_EMPLEADO"},
+                    {"data":"CEDULA"},
+                    {"data":"NOMBRES"},
+                    {"data":"APELLIDOS"},
+                    {"data":"CORREO_ELECTRONICO"},
+                    {"data":"CONTACTO"},
+                    {"data":"DIRECCION"},
+                    {"data":"CONTRASENA"},
+                    {"data":"DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA"},
+                    {"data":"ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO"},
+                ]
+            });
+    });
+</script>-->
+
+<%- include('partials/_footer'); %>

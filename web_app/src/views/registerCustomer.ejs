@@ -1,0 +1,42 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+  <img id="logo" src="../images/logo.png">
+  <div class="registerPanel">
+    <h1>Registrar cliente</h1>
+    <form action="/postCustomers" method="POST">
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="identification" required>
+        <span></span>
+        <label>Cédula o NIT</label>
+      </div>
+
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="name" required>
+        <span></span>
+        <label>Nombre completo o razón jurídica</label>
+      </div>
+
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="email" required>
+        <span></span>
+        <label>Correo electrónico</label>
+      </div>
+      
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="contact" required>
+        <span></span>
+        <label>Teléfono</label>
+      </div>
+      
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="address" required>
+        <span></span>
+        <label>Dirección</label>
+      </div>
+      <input class="botons" type="submit" value="Registrar">
+    </form>
+  </div>
+</section>
+
+<%- include('partials/_footer'); %>

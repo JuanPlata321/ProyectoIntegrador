@@ -172,7 +172,7 @@ input[type="submit"]:hover{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
-    height: 90%;
+    height: 88%;
     background: #fcfbff;
     border-radius: 10px;
     box-shadow: 7px 13px 37px #000;
@@ -191,7 +191,7 @@ input[type="submit"]:hover{
     margin-bottom: 6%;
 }
 .buttonsPanelAdmin{
-    margin: 2% 0px 2% 7%;
+    margin: 1% 0px 2% 7%;
     width: 39.5%;
     height: 70px;
     float: left;

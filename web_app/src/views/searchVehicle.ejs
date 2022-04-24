@@ -1,0 +1,56 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+    <img id="logo" src="../images/logo.png">
+    <div id="searchitemPanel">
+        <h1>Inventario de vehículos</h1>
+        <table id="tablaArticulos" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>MARCA</th>
+                    <th>MODELO</th>                                
+                    <th>AÑO</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>TIPO</th>                                
+                    <th>IMAGEN</th>
+                    <th>UNIDADES EN STOCK</th>
+                    <th>VALOR UNITARIO</th>                                                   
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</section>
+<!--<script>
+    $(document).ready(function() {   
+        var url = 'http://localhost:443/getVehicles';
+    
+            $('#tablaArticulos').DataTable({            
+                "ajax":{
+                    "url": url,
+                    "dataSrc":""
+                },
+                "columns":[
+                    {"data":"ID_VEHICULOS"},
+                    {"data":"MARCA"},
+                    {"data":"MODELO"},
+                    {"data":"AÑO"},
+                    {"data":"DESCRIPCION"},
+                    {"data":"TIPO"},
+                    {"data":"IMAGEN_URL"},
+                    {"data":"UNIDADES_STOCK"},
+                    {"data":"VALOR_UNITARIO"},
+                ],
+                "columnDefs":[{
+                    "targets":[9],
+                    render(v){
+                        return Number(v).toFixed(2)
+                    }
+                }]
+            });
+    });
+</script>-->
+
+<%- include('partials/_footer'); %>

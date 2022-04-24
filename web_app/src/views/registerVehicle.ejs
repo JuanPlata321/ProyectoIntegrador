@@ -1,0 +1,60 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+  <img id="logo" src="../images/logo.png">
+  <div class="registerPanel">
+    <h1>Registrar vehículo</h1>
+    <form action="/postVehicles" method="POST">
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="brand" required>
+        <span></span>
+        <label>Marca</label>
+      </div>
+
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="model" required>
+        <span></span>
+        <label>Modelo</label>
+      </div>
+      
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="year" required>
+        <span></span>
+        <label>Año</label>
+      </div>
+
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="description" required>
+        <span></span>
+        <label>Descripción</label>
+      </div>
+      
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="type" required>
+        <span></span>
+        <label>Tipo</label>
+      </div>
+      
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="image" required>
+        <span></span>
+        <label>Imagen</label>
+      </div>
+      
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="unit" required>
+        <span></span>
+        <label>Unidades en stock</label>
+      </div>
+
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="value" required>
+        <span></span>
+        <label>Valor unitario</label>
+      </div>
+      <input class="botons" type="submit" value="Registrar">
+    </form>
+  </div>
+</section>
+
+<%- include('partials/_footer'); %>

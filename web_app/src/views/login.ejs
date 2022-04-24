@@ -1,0 +1,23 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+  <img id="logo" src="/images/logo.png">
+  <div class="registerPanel">
+    <h1>Iniciar sesión</h1>
+    <form action="/login" method="POST">
+      <div class="txt_field">
+        <input type="text" class="inputField" name="user" required>
+        <span></span>
+        <label>Correo electrónico</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" class="inputField" name="pass" required>
+        <span></span>
+        <label>Contraseña</label>
+      </div>
+      <input type="submit" value="Ingresar"></input>
+    </form>
+  </div>
+</section>
+
+<%- include('partials/_footer'); %>
