@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `MashinDataBase`.`VEHICULOS` ;
 CREATE TABLE IF NOT EXISTS `MashinDataBase`.`VEHICULOS` (
   `ID_VEHICULOS` INT NOT NULL AUTO_INCREMENT COMMENT 'Este campo ID representa el indice de un vehiculo del catalogo de la concesionaria',
   `MARCA` VARCHAR(45) NOT NULL COMMENT 'Este campo representa la marca del vehiculo que hace parte del catalogo de la concesionaria',
-  `MODELO` VARCHAR(10) NOT NULL COMMENT 'Este campo hace referencia al modelo del vehiculo que hace parte del catálogo',
+  `MODELO` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al modelo del vehiculo que hace parte del catálogo',
   `AÑO` VARCHAR(10) NOT NULL COMMENT 'Este campo hace referencia al año de lanzamiento del vehiculo',
   `DESCRIPCION` VARCHAR(250) NOT NULL COMMENT 'Este campo hace referencia a la descripcion completa del vehiculo que hace parte del catalogo, es decir, por ejemplo “Citroën C4 5P BlueHDi 150 Shine”.',
   `TIPO` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al tipo de vehiculo o grupo del cual hace parte un vehiculo del catalogo de la concesionaria, es decir, por ejemplo si es de tipo deportiivo, sedan, crossover, etc.',
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `MashinDataBase`.`CLIENTES` (
   `ID_CLIENTE` INT NOT NULL AUTO_INCREMENT COMMENT 'Este campo ID permite identificar el indice de un cliente dentro del conjunto de clientes de la concesionaria registrados en el sistema',
   `CEDULA_NIT` VARCHAR(15) NOT NULL COMMENT 'Este campo hace referencia al numero de identificacion personal del cliente dentro del territorio nacional',
   `NOMBRES` VARCHAR(90) NOT NULL COMMENT 'Este campo hace referencia al nombre completo de un cliente que hace parte de la concesionaria, bien sea una persona o una empresa como tál',
-  `CORREO_ELECTRONICO` VARCHAR(45) NULL COMMENT 'Este campo hace referencia al correo electronico de un cliente que pertenece a la concesionaria',
+  `CORREO_ELECTRONICO` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al correo electronico de un cliente que pertenece a la concesionaria',
   `CONTACTO` VARCHAR(15) NOT NULL COMMENT 'Este campo hace referencia al numero de contacto del cliente que hace parte de la concesionaria, este numero de contacto puede ser bien sea numero de telefono fijo o celular',
   `DIRECCION` VARCHAR(70) NOT NULL COMMENT 'Este campo hace referencia a la direccion de residencia de un cliente que hace parte de la concesionaria',
   PRIMARY KEY (`ID_CLIENTE`))
@@ -132,7 +132,7 @@ DROP TABLE IF EXISTS `MashinDataBase`.`ORDEN_COMPRA` ;
 
 CREATE TABLE IF NOT EXISTS `MashinDataBase`.`ORDEN_COMPRA` (
   `ID_ORDEN_COMPRA` INT NOT NULL AUTO_INCREMENT COMMENT 'Este campo ID permite identificar el indice de una orden de compra dentro del conjunto de las mismas registrados en el sistema de la concesionaria ',
-  `FECHA_EMISION_ORDEN` TIMESTAMP NOT NULL COMMENT 'Este campo hace referencia a la fecha exacta en que el empleado de la concesionaria genera la orden de compra en base a la peticion del cliente ',
+  `FECHA_EMISION_ORDEN` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia a la fecha exacta en que el empleado de la concesionaria genera la orden de compra en base a la peticion del cliente ',
   `NOMBRE_RESPONSABLE` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia al empleado o gerente de la concesionaria que se encarga de llevar a cabo o resolver una dicha orden de compra generada',
   `PORCENTAJE_DESCUENTOS` INT UNSIGNED NOT NULL COMMENT 'Este campo hace referencia al porcentaje de descuento al valor total que tiene el cliente por los productos que desea adquirir',
   `IMPUESTOS` INT UNSIGNED NOT NULL COMMENT 'Este campo hace referencia al valor de los impuestos generados por los productos descritos en la orden de compra, teniendo en cuenta el porcentaje que define el estado colombiano para este apartado',
@@ -160,13 +160,13 @@ CREATE INDEX `fk_ORDEN_COMPRA_EMPLEADOS1_idx` ON `MashinDataBase`.`ORDEN_COMPRA`
 
 
 -- -----------------------------------------------------
--- Table `MashinDataBase`.`FACTURA`
+-- Table `MashinDataBase`.`FACTURAS`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `MashinDataBase`.`FACTURA` ;
+DROP TABLE IF EXISTS `MashinDataBase`.`FACTURAS` ;
 
-CREATE TABLE IF NOT EXISTS `MashinDataBase`.`FACTURA` (
+CREATE TABLE IF NOT EXISTS `MashinDataBase`.`FACTURAS` (
   `ID_FACTURA` INT NOT NULL AUTO_INCREMENT COMMENT 'Este campo ID hace referencia al indice de la factura de todo el conjunto de facturas generadas dentro del sistema',
-  `FECHA_EMISION_FACTURA` TIMESTAMP NOT NULL COMMENT 'Este campo hace referencia a la fecha exacta en que se emite la factura de venta',
+  `FECHA_EMISION_FACTURA` VARCHAR(45) NOT NULL COMMENT 'Este campo hace referencia a la fecha exacta en que se emite la factura de venta',
   `DATOS_EMPRESA` VARCHAR(250) NOT NULL COMMENT 'Este campo hace referencia a toda la informacion en general que se incluye dentro de la factura de venta acerca de la concesionaria',
   `ORDEN_COMPRA_ID_ORDEN_COMPRA` INT NOT NULL COMMENT 'Este campo ID hace referencia al indice de una orden de compra dentro del conjunto de las mismas registrados en el sistema de la concesionaria con la cual se genero la factura de venta',
   PRIMARY KEY (`ID_FACTURA`),
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `MashinDataBase`.`FACTURA` (
 ENGINE = InnoDB
 COMMENT = 'Esta tabla permite almacenar las diferentes facturas que se generan dentro del sistema de la concesionaria';
 
-CREATE INDEX `fk_FACTURA_ORDEN_COMPRA1_idx` ON `MashinDataBase`.`FACTURA` (`ORDEN_COMPRA_ID_ORDEN_COMPRA` ASC) VISIBLE;
+CREATE INDEX `fk_FACTURA_ORDEN_COMPRA1_idx` ON `MashinDataBase`.`FACTURAS` (`ORDEN_COMPRA_ID_ORDEN_COMPRA` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -188,18 +188,20 @@ DROP TABLE IF EXISTS `MashinDataBase`.`GARANTIAS` ;
 
 CREATE TABLE IF NOT EXISTS `MashinDataBase`.`GARANTIAS` (
   `ID_GARANTIA` INT NOT NULL AUTO_INCREMENT COMMENT 'Este campo ID hace referencia al indice de una garantia de todo el conjunto de garantias solicitadas y generadas dentro del sistema',
-  `DESCRIPCION` VARCHAR(250) NOT NULL COMMENT 'Este campo hace referencia a la descripcion de la garantia en especifico, es decir, porque se genera la garantia, que fallas esta teniendo el vehiculo adquirido, etc',
-  `FACTURA_ID_FACTURA` INT NOT NULL COMMENT 'Este campo ID hace referencia al indice de la factura de todo el conjunto de facturas generadas dentro del sistema con la cual se da soporte o se establece a la garantia',
+  `DESCRIPCION` VARCHAR(350) NOT NULL COMMENT 'Este campo hace referencia a la descripcion de la garantia en especifico, es decir, porque se genera la garantia, que fallas esta teniendo el vehiculo adquirido, etc',
+  `FECHA_EMISION` VARCHAR(45) NOT NULL,
+  `FECHA_VENCIMIENTO` VARCHAR(45) NOT NULL,
+  `FACTURAS_ID_FACTURA` INT NOT NULL,
   PRIMARY KEY (`ID_GARANTIA`),
-  CONSTRAINT `fk_GARANTIAS_FACTURA1`
-    FOREIGN KEY (`FACTURA_ID_FACTURA`)
-    REFERENCES `MashinDataBase`.`FACTURA` (`ID_FACTURA`)
+  CONSTRAINT `fk_GARANTIAS_FACTURAS1`
+    FOREIGN KEY (`FACTURAS_ID_FACTURA`)
+    REFERENCES `MashinDataBase`.`FACTURAS` (`ID_FACTURA`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 COMMENT = 'Esta tabla permite almacenar las diferentes garantias que se generan a base de la compra un vehiculo dentro del sistema de la concesionaria';
 
-CREATE INDEX `fk_GARANTIAS_FACTURA1_idx` ON `MashinDataBase`.`GARANTIAS` (`FACTURA_ID_FACTURA` ASC) VISIBLE;
+CREATE INDEX `fk_GARANTIAS_FACTURAS1_idx` ON `MashinDataBase`.`GARANTIAS` (`FACTURAS_ID_FACTURA` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -301,7 +303,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 CREATE TRIGGER HISTORICO_PRECIOS_INSERT AFTER INSERT ON VEHICULOS FOR EACH ROW
 INSERT INTO HISTORICO_PRECIO(VALOR_UNITARIO_INSERTADO, VALOR_UNITARIO_REEMPLAZADO, VEHICULOS_ID_VEHICULOS, FECHA_MODIFICACION)
-VALUES (NEW.VALOR_UNITARIO, NULL, NEW.ID_VEHICULOS, CURRENT_DATE );
+VALUES (NEW.VALOR_UNITARIO, 0, NEW.ID_VEHICULOS, CURRENT_DATE );
 
 DELIMITER $$
 CREATE TRIGGER HISTORICO_PRECIOS_UPDATE BEFORE UPDATE ON VEHICULOS FOR EACH ROW
@@ -336,6 +338,18 @@ END$$
 DELIMITER ;
 
 -- -----------------------------------------------------
+-- Definition of the trigger to set subtotal and total default value for a purchase order
+-- -----------------------------------------------------
+
+DELIMITER $$
+CREATE TRIGGER ESTABLECER_DEFAULT_SUBTOTAL_TOTAL_ORDEN_COMPRA BEFORE INSERT ON ORDEN_COMPRA FOR EACH ROW
+BEGIN
+	SET NEW.SUBTOTAL = 0;
+	SET NEW.VALOR_TOTAL = 0;
+END$$
+DELIMITER ;
+
+-- -----------------------------------------------------
 -- Definition of the trigger to register vehicle action after update or insert at the inventory
 -- -----------------------------------------------------
 
@@ -352,6 +366,47 @@ CREATE TRIGGER REGISTRAR_VEHICULOS_UPDATE AFTER UPDATE ON VEHICULOS FOR EACH ROW
 BEGIN
     SELECT ID_VEHICULOS INTO @ID_VEHICULOS FROM VEHICULOS WHERE MARCA = NEW.MARCA AND MODELO = NEW.MODELO AND AÑO = NEW.AÑO AND DESCRIPCION = NEW.DESCRIPCION AND TIPO = NEW.TIPO AND IMAGEN_URL = NEW.IMAGEN_URL AND UNIDADES_STOCK = NEW.UNIDADES_STOCK AND VALOR_UNITARIO = NEW.VALOR_UNITARIO;
     INSERT INTO REGISTRO_MOVIMIENTO_VEHICULOS(FECHA_REGISTRO, DESCRIPCION, VEHICULOS_ID_VEHICULOS) VALUES (Now(), CONCAT("Se establecieron ", NEW.UNIDADES_STOCK, " unidades al inventario para el vehículo asociado"), @ID_VEHICULOS);
+END$$
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- Definition of the trigger to set automically purchase order, invoice date and mashin data for invoice
+-- -----------------------------------------------------
+
+DELIMITER $$
+CREATE TRIGGER ESTABLECER_EMISION_FACTURA BEFORE INSERT ON FACTURAS FOR EACH ROW
+BEGIN
+	SET NEW.FECHA_EMISION_FACTURA = NOW();
+	SET NEW.DATOS_EMPRESA = 'NIT: 7445722532, Direccion: Km. 7 vía Piedecuesta';
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER ESTABLECER_EMISION_ORDEN_COMPRA BEFORE INSERT ON ORDEN_COMPRA FOR EACH ROW
+BEGIN
+	SET NEW.FECHA_EMISION_ORDEN = NOW();
+END$$
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- Definition of the trigger to create automically warranty
+-- -----------------------------------------------------
+
+DELIMITER $$
+CREATE TRIGGER REGISTRAR_GARANTIA AFTER INSERT ON FACTURAS FOR EACH ROW
+BEGIN
+    SELECT EXTRACT(DAY FROM NOW()) INTO @DIA_VALOR_EXPEDICION;
+	SELECT EXTRACT(MONTH FROM NOW()) INTO @MES_VALOR_EXPEDICION;
+	SELECT EXTRACT(YEAR FROM NOW()) INTO @ANO_VALOR_EXPEDICION;
+    
+    SELECT EXTRACT(DAY FROM DATE_ADD(NOW(), INTERVAL 1 YEAR)) INTO @DIA_VALOR_VENCIMIENTO;
+	SELECT EXTRACT(MONTH FROM DATE_ADD(NOW(), INTERVAL 1 YEAR)) INTO @MES_VALOR_VENCIMIENTO;
+	SELECT EXTRACT(YEAR FROM DATE_ADD(NOW(), INTERVAL 1 YEAR)) INTO @ANO_VALOR_VENCIMIENTO;
+    
+	SELECT CONCAT('El día ', @DIA_VALOR_EXPEDICION, ' del mes ', @MES_VALOR_EXPEDICION, ' del año ', @ANO_VALOR_EXPEDICION, ' se expide la garantía para los productos asociados con la factura con identificador ', NEW.ID_FACTURA, ', con una validez de un año EXCLUSIVAMENTE para los defectos de fábrica que presente el producto adquirido. A partir del día ', @DIA_VALOR_VENCIMIENTO, ' del mes ', @MES_VALOR_VENCIMIENTO, ' del año ', @ANO_VALOR_VENCIMIENTO, ' esta garantía dejará de tener validez.') INTO @GARANTIA_DESCRIPCION;
+    
+    INSERT INTO GARANTIAS(DESCRIPCION, FECHA_EMISION, FECHA_VENCIMIENTO, FACTURAS_ID_FACTURA) 
+	VALUES (@GARANTIA_DESCRIPCION, NOW(), DATE_ADD(NOW(), INTERVAL 1 YEAR), NEW.ID_FACTURA);
 END$$
 DELIMITER ;
 
