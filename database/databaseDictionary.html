@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="WB DataDic" />
+    <meta name="description" content="MashinDataBase Data Dictionary." />
+    <title>MashinDataBase Data Dictionary</title>
+    <style type="text/css">
+    table{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    abbr{
+        cursor: help;
+    }
+    table, td, th{
+        border-style: solid;
+        border-width: 1px;
+    }
+    table caption{
+        font-size: 120%;
+        font-weight: bold;
+    }
+    caption{
+        color: black;
+    }
+    td, th{
+        border-color: silver;
+    }
+    tr:hover{
+        color: #333;
+        background-color: #F2F2F2;
+    }
+    th{
+        background-color: silver;
+    }
+    td{
+        color: gray;
+    }
+    ul{
+        font-style: italic;
+    }
+    #title-sect{
+        color: gray;
+        text-align: right;
+    }
+    .proj-desc{
+        text-align: right;
+    }
+    </style>
+</head>
+<body>
+<div id="title-sect">
+<h1>MashinDataBase<br> Data Dictionay</h1>
+<p>
+<em>2022-04-24</em>
+</p>
+<p class="proj-desc">
+<em></em>
+</p>
+</div>
+<h2>Alphabetic Index</h2>
+<ul>
+<li><a href='#CLIENTES'>CLIENTES</a></li>
+<li><a href='#DEPARTAMENTO_AREA'>DEPARTAMENTO_AREA</a></li>
+<li><a href='#EMPLEADOS'>EMPLEADOS</a></li>
+<li><a href='#ESTADO_EMPLEADO'>ESTADO_EMPLEADO</a></li>
+<li><a href='#FACTURAS'>FACTURAS</a></li>
+<li><a href='#GARANTIAS'>GARANTIAS</a></li>
+<li><a href='#HISTORICO_PRECIO'>HISTORICO_PRECIO</a></li>
+<li><a href='#LOGS_SISTEMA'>LOGS_SISTEMA</a></li>
+<li><a href='#ORDEN_COMPRA'>ORDEN_COMPRA</a></li>
+<li><a href='#ORDEN_COMPRA_has_VEHICULOS'>ORDEN_COMPRA_has_VEHICULOS</a></li>
+<li><a href='#REGISTRO_MOVIMIENTO_VEHICULOS'>REGISTRO_MOVIMIENTO_VEHICULOS</a></li>
+<li><a href='#VEHICULOS'>VEHICULOS</a></li>
+</ul>
+<table id='CLIENTES'>
+<caption>CLIENTES</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar los diferentes clientes que hacen parte de la concesionaria</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_CLIENTE</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID permite identificar el indice de un cliente dentro del conjunto de clientes de la concesionaria registrados en el sistema</td>
+</tr>
+<tr>
+    <td>CEDULA_NIT</td>
+    <td>VARCHAR(15)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al numero de identificacion personal del cliente dentro del territorio nacional</td>
+</tr>
+<tr>
+    <td>NOMBRES</td>
+    <td>VARCHAR(90)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al nombre completo de un cliente que hace parte de la concesionaria, bien sea una persona o una empresa como tál</td>
+</tr>
+<tr>
+    <td>CORREO_ELECTRONICO</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al correo electronico de un cliente que pertenece a la concesionaria</td>
+</tr>
+<tr>
+    <td>CONTACTO</td>
+    <td>VARCHAR(15)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al numero de contacto del cliente que hace parte de la concesionaria, este numero de contacto puede ser bien sea numero de telefono fijo o celular</td>
+</tr>
+<tr>
+    <td>DIRECCION</td>
+    <td>VARCHAR(70)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la direccion de residencia de un cliente que hace parte de la concesionaria</td>
+</tr>
+<table id='DEPARTAMENTO_AREA'>
+<caption>DEPARTAMENTO_AREA</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar las diferentes areas o departamentos que se encuentran dentro de la concesionaria</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_DEPARTAMENTO_AREA</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID representa un area o departamento especifico de la concesionaria, es decir, si es el area o departamento de asesoramiento comercial, de direccion o gerencia, o si por el contrario es el de caja</td>
+</tr>
+<tr>
+    <td>DESCRIPCION</td>
+    <td>VARCHAR(250)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo me permite especificar o exclarecer a que se refiere determinado ID para representar un area o departamento de la concesionaria</td>
+</tr>
+<table id='EMPLEADOS'>
+<caption>EMPLEADOS</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar los empleados que hacen parte del personal de la concesionaria</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_EMPLEADO</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID permite identificar el indice de un empleado dentro del conjunto de empleados o personal de la concesionaria</td>
+</tr>
+<tr>
+    <td>CEDULA</td>
+    <td>VARCHAR(15)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al numero de identificacion personal del empleado dentro del territorio nacional</td>
+</tr>
+<tr>
+    <td>NOMBRES</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al nombre o los nombres (En caso de ser mas de uno) de un empleado que hace parte de la concesionaria</td>
+</tr>
+<tr>
+    <td>APELLIDOS</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al apellido (En caso de ser unicamente uno) o los apellidos de un empleado que hace parte de la concesionaria</td>
+</tr>
+<tr>
+    <td>CORREO_ELECTRONICO</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al correo electronico de un empleado, este correo pertenece dominio de la concesionaria</td>
+</tr>
+<tr>
+    <td>CONTACTO</td>
+    <td>VARCHAR(15)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al numero de contacto del empleado que hace parte de la concesionaria, este numero de contacto puede ser bien sea numero de telefono fijo o celular</td>
+</tr>
+<tr>
+    <td>DIRECCION</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la direccion de residencia del empleado que hace parte del personal de la concesionaria</td>
+</tr>
+<tr>
+    <td>CONTRASENA</td>
+    <td>VARCHAR(66)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la contraseña designada por un empleado para el acceso al sistema de la concesionaria con su perfil</td>
+</tr>
+<tr>
+    <td>DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo ID representa un area o departamento especifico de la concesionaria en el cual este empleado tiene designado para hacer sus labores, es decir, si es el area o departamento de asesoramiento comercial, de direccion o gerencia, o si por el contrario es el de caja</td>
+</tr>
+<tr>
+    <td>ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo ID representa el estado actual de un usario dentro del sistema, es decir, si se encuentra activo, inactivo o fuera de servicio</td>
+</tr>
+<table id='ESTADO_EMPLEADO'>
+<caption>ESTADO_EMPLEADO</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar los diferentes estados de los empleados  dentro del sistema de la concesionaria</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_ESTADO_EMPLEADO</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID representa el estado actual de un usario dentro del sistema, es decir, si se encuentra activo, inactivo o fuera de servicio</td>
+</tr>
+<tr>
+    <td>DESCRIPCION</td>
+    <td>VARCHAR(250)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo me permite especificar o exclarecer a que se refiere determinado ID para representar un estado de un empleado dentro del sistema</td>
+</tr>
+<table id='FACTURAS'>
+<caption>FACTURAS</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar las diferentes facturas que se generan dentro del sistema de la concesionaria</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_FACTURA</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID hace referencia al indice de la factura de todo el conjunto de facturas generadas dentro del sistema</td>
+</tr>
+<tr>
+    <td>FECHA_EMISION_FACTURA</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la fecha exacta en que se emite la factura de venta</td>
+</tr>
+<tr>
+    <td>DATOS_EMPRESA</td>
+    <td>VARCHAR(250)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a toda la informacion en general que se incluye dentro de la factura de venta acerca de la concesionaria</td>
+</tr>
+<tr>
+    <td>ORDEN_COMPRA_ID_ORDEN_COMPRA</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo ID hace referencia al indice de una orden de compra dentro del conjunto de las mismas registrados en el sistema de la concesionaria con la cual se genero la factura de venta</td>
+</tr>
+<table id='GARANTIAS'>
+<caption>GARANTIAS</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar las diferentes garantias que se generan a base de la compra un vehiculo dentro del sistema de la concesionaria</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_GARANTIA</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID hace referencia al indice de una garantia de todo el conjunto de garantias solicitadas y generadas dentro del sistema</td>
+</tr>
+<tr>
+    <td>DESCRIPCION</td>
+    <td>VARCHAR(350)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la descripcion de la garantia en especifico, es decir, porque se genera la garantia, que fallas esta teniendo el vehiculo adquirido, etc</td>
+</tr>
+<tr>
+    <td>FECHA_EMISION</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la fecha exacta en la cual se emite la garantia y a su vez empieza su regimen</td>
+</tr>
+<tr>
+    <td>FECHA_VENCIMIENTO</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la fecha exacta en la cual la garantia llega a su vencimiento y por lo cual deja de tener validez</td>
+</tr>
+<tr>
+    <td>FACTURAS_ID_FACTURA</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo ID hace referencia al indice de la factura de todo el conjunto de facturas generadas dentro del sistema la cual se encuentra asociada con una garantia</td>
+</tr>
+<table id='HISTORICO_PRECIO'>
+<caption>HISTORICO_PRECIO</caption>
+<tr><td colspan='11'>Esta tabla permite llevar un registro del historico de precios de los vehiculos dentro de la concesionaria</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_HISTORICO</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID representa el indice del historico de precios de un vehiculo</td>
+</tr>
+<tr>
+    <td>VALOR_UNITARIO_INSERTADO</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo representa el valor unitario o precio nuevo que se inserta o se modifica para un vehiculo que hace parte del catalogo de la concesionaria </td>
+</tr>
+<tr>
+    <td>VALOR_UNITARIO_REEMPLAZADO</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo representa el valor unitario o precio anterior que tenia un vehiculo que hace parte del catalogo de la concesionaria antes de ser reemplazado</td>
+</tr>
+<tr>
+    <td>FECHA_MODIFICACION</td>
+    <td>DATE</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo representa la fecha en la que se realizo la insercion o modificacion de un precio para un vehiculo que hace parte del catalogo</td>
+</tr>
+<tr>
+    <td>VEHICULOS_ID_VEHICULOS</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo ID representa el indice de un vehiculo del catalogo de la concesionaria</td>
+</tr>
+<table id='LOGS_SISTEMA'>
+<caption>LOGS_SISTEMA</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar la trazabilidad de los usuarios en el sistema, bien sean clientes o empleados</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_LOG</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID permite identificar el indice de determinado log o registro dentro del conjunto de logs o registros del sistema</td>
+</tr>
+<tr>
+    <td>FECHA</td>
+    <td>TIMESTAMP</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo permite almacenar la fecha exacta en que se realizo determinada accion o peticion dentro del sistema por un usuario</td>
+</tr>
+<tr>
+    <td>ACCION</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la accion en concreto que realizo un usuario dentro del sistema</td>
+</tr>
+<tr>
+    <td>DESCRIPCION</td>
+    <td>VARCHAR(250)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo permite tener una informacion mas detallada de la accion o peticion que se realizo, es decir, en este campo por ejemplo si se elimino un item de un inventario, aqui podria conocer que item en concreto fue eliminado, mientras que en la accion simplemente sabria que se elimino un item</td>
+</tr>
+<tr>
+    <td>TIPO_USUARIO</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al tipo de usuario dentro del sistema, bien sea empleado o cliente que realizo determinada accion o peticion dentro del sistema</td>
+</tr>
+<tr>
+    <td>ID_USUARIO</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al ID bien sea de un cliente o de un empleado el cual realizo determinada accion o peticion dentro del sistema</td>
+</tr>
+<table id='ORDEN_COMPRA'>
+<caption>ORDEN_COMPRA</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar las diferentes ordenes de compra que se generan dentro del sistema</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_ORDEN_COMPRA</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID permite identificar el indice de una orden de compra dentro del conjunto de las mismas registrados en el sistema de la concesionaria </td>
+</tr>
+<tr>
+    <td>FECHA_EMISION_ORDEN</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la fecha exacta en que el empleado de la concesionaria genera la orden de compra en base a la peticion del cliente </td>
+</tr>
+<tr>
+    <td>NOMBRE_RESPONSABLE</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al empleado o gerente de la concesionaria que se encarga de llevar a cabo o resolver una dicha orden de compra generada</td>
+</tr>
+<tr>
+    <td>PORCENTAJE_DESCUENTOS</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al porcentaje de descuento al valor total que tiene el cliente por los productos que desea adquirir</td>
+</tr>
+<tr>
+    <td>IMPUESTOS</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al valor de los impuestos generados por los productos descritos en la orden de compra, teniendo en cuenta el porcentaje que define el estado colombiano para este apartado</td>
+</tr>
+<tr>
+    <td>SUBTOTAL</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al valor parcial de la orden de compra, en este se suman el valor de todos los items de los productos que se ordenaron y se la aplican los impuestos definidos</td>
+</tr>
+<tr>
+    <td>VALOR_TOTAL</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al valor total que el cliente debe cancelar a la concesionaria por los productos descritos en la orden de compra. El valor total es el resultado de aplicarle al valor subtotal el porcentaje de descuentos y otra serie de impuestos en casos de ser necesarios</td>
+</tr>
+<tr>
+    <td>CLIENTE_ID_CLIENTE</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo ID hace referencia al ID del cliente que solicita la orden de compra</td>
+</tr>
+<tr>
+    <td>EMPLEADOS_ID_EMPLEADO</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<table id='ORDEN_COMPRA_has_VEHICULOS'>
+<caption>ORDEN_COMPRA_has_VEHICULOS</caption>
+<tr><td colspan='11'>Esta tabla permite la interaccion entre una orden de compra y un vehiculo de tal forma de que una orden de compra pueda estar compuesta por mas de un vehiculo y no necesariamente de uno solo</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ORDEN_COMPRA_ID_ORDEN_COMPRA</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo ID permite identificar el indice de una orden de compra dentro del conjunto de las mismas registrados en el sistema de la concesionaria </td>
+</tr>
+<tr>
+    <td>VEHICULOS_ID_VEHICULOS</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo ID representa el indice de un vehiculo del catalogo de la concesionaria el cual esta incluido en la orden de compra generada</td>
+</tr>
+<table id='REGISTRO_MOVIMIENTO_VEHICULOS'>
+<caption>REGISTRO_MOVIMIENTO_VEHICULOS</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar la trazabilidad de los vehiculos dentro del inventario del sistetma</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_REGISTRO_MOVIMIENTO_VEHICULOS</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID hacce referenncia al identificador del registro del movimiento realizaod en la base de datos del vehículo</td>
+</tr>
+<tr>
+    <td>FECHA_REGISTRO</td>
+    <td>TIMESTAMP</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la fecha en que realizó la acción y se generó el registro</td>
+</tr>
+<tr>
+    <td>DESCRIPCION</td>
+    <td>VARCHAR(250)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Estte campo ID hace referencia a  la descripción de lo que se realizó con el vehículo dentro del inventario</td>
+</tr>
+<tr>
+    <td>VEHICULOS_ID_VEHICULOS</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<table id='VEHICULOS'>
+<caption>VEHICULOS</caption>
+<tr><td colspan='11'>Esta tabla permite almacenar los vehiculos que hacen parte del catalogo de la concesionaria</td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_VEHICULOS</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID representa el indice de un vehiculo del catalogo de la concesionaria</td>
+</tr>
+<tr>
+    <td>MARCA</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo representa la marca del vehiculo que hace parte del catalogo de la concesionaria</td>
+</tr>
+<tr>
+    <td>MODELO</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al modelo del vehiculo que hace parte del catálogo</td>
+</tr>
+<tr>
+    <td>AÑO</td>
+    <td>VARCHAR(10)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al año de lanzamiento del vehiculo</td>
+</tr>
+<tr>
+    <td>DESCRIPCION</td>
+    <td>VARCHAR(250)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la descripcion completa del vehiculo que hace parte del catalogo, es decir, por ejemplo “Citroën C4 5P BlueHDi 150 Shine”.</td>
+</tr>
+<tr>
+    <td>TIPO</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al tipo de vehiculo o grupo del cual hace parte un vehiculo del catalogo de la concesionaria, es decir, por ejemplo si es de tipo deportiivo, sedan, crossover, etc.</td>
+</tr>
+<tr>
+    <td>IMAGEN_URL</td>
+    <td>VARCHAR(250)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la imagen representativa de un vehiculo que hace parte del catalogo de la concesionaria</td>
+</tr>
+<tr>
+    <td>UNIDADES_STOCK</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a las unidades disponibles o en stock de determinado vehiculo que hace parte del catologo de la concesionaria</td>
+</tr>
+<tr>
+    <td>VALOR_UNITARIO</td>
+    <td>INT</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al valor unitario o precio de determinado vehiculo que hace parte del catalogo de la concesionaria</td>
+</tr>
+</table>
+</body>
+</html>
