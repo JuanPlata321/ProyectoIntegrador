@@ -1,0 +1,33 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+    <div id="searchitemPanel">
+        <h1>Inventario de garantías</h1>
+        <table id="articleTable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>FECHA DE EMISIÓN</th>                                
+                    <th>FECHA DE VENCIMIENTO</th>
+                    <th>FACTURA ASOCIADO</th>                                     
+                </tr>
+            </thead>
+            <tbody>
+                <% if (data) { %>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].ID_GARANTIA %></td>
+                        <td><%= data[i].DESCRIPCION %></td>
+                        <td><%= data[i].FECHA_EMISION %></td>
+                        <td><%= data[i].FECHA_VENCIMIENTO %></td>
+                        <td><%= data[i].FACTURAS_ID_FACTURA %></td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<%- include('partials/_footer'); %>

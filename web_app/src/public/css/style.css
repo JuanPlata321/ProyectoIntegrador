@@ -115,57 +115,9 @@ input[type="submit"]:hover{
     transition: .5s;
 }
 
-/*User panel configuration*/
+/*Dashboard configuration*/
 
-#optionsPanelUser{
-    padding: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    height: 70%;
-    background: #fcfbff;
-    border-radius: 10px;
-    box-shadow: 7px 13px 37px #000;
-}
-#optionsPanelUser h1{
-    color: #fff;
-    font: 750 normal 25px sans-serif;
-    text-align: center;
-    padding: 2% 0 20px 0;
-    border-radius: 10px 10px 0px 0px;
-    border-bottom: 1px solid silver;
-    background-color: #23395B;
-}
-#gridContainerUser{
-    margin-top: 5.5%;
-    margin-bottom: 6%;
-}
-.buttonsPanelUser{
-    margin: 1% 0px 5% 7%;
-    width: 39.5%;
-    height: 70px;
-    float: left;
-    background-attachment: fixed;
-    border-radius: 3px;
-    box-shadow: 0 2.5px 7.5px rgba(0, 0, 0, 0.322);
-    overflow: visible;
-    background-color: #23395B;
-    text-align: center;
-}
-.buttonsPanelUser p{
-    font: 550 18px sans-serif;
-    color: #fcfbff;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-
-/*User panel configuration*/
-
-#optionsPanelAdmin{
+#optionsPanel{
     padding: 0;
     position: absolute;
     top: 50%;
@@ -176,8 +128,9 @@ input[type="submit"]:hover{
     background: #fcfbff;
     border-radius: 10px;
     box-shadow: 7px 13px 37px #000;
+    overflow: auto;
 }
-#optionsPanelAdmin h1{
+#optionsPanel h1{
     color: #fff;
     font: 750 normal 25px sans-serif;
     text-align: center;
@@ -186,11 +139,11 @@ input[type="submit"]:hover{
     border-bottom: 1px solid silver;
     background-color: #23395B;
 }
-#gridContainerAdmin{
+#gridContainer{
     margin-top: 3.5%;
     margin-bottom: 6%;
 }
-.buttonsPanelAdmin{
+.buttonsPanel{
     margin: 1% 0px 2% 7%;
     width: 39.5%;
     height: 70px;
@@ -203,7 +156,26 @@ input[type="submit"]:hover{
     text-align: center;
 }
 /*#f44336*/
-.buttonsPanelAdmin p{
+.buttonsPanel p{
+    font: 550 18px sans-serif;
+    color: #fcfbff;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+#buttonsPanelExit{
+    margin: 1% 0px 2% 30%;
+    width: 39.5%;
+    height: 70px;
+    float: left;
+    border-radius: 3px;
+    box-shadow: 0 2.5px 7.5px rgba(0, 0, 0, 0.322);
+    overflow: visible;
+    background-color: #23395B;
+    text-align: center;
+}
+#buttonsPanelExit p{
     font: 550 18px sans-serif;
     color: #fcfbff;
     position: relative;
@@ -220,11 +192,12 @@ input[type="submit"]:hover{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
-    height: 70%;
+    width: 90%;
+    height: 80%;
     background: #fcfbff;
     border-radius: 10px;
     box-shadow: 7px 13px 37px #000;
+    overflow: auto;
 }
 #searchitemPanel h1{
     color: #fff;
@@ -234,21 +207,75 @@ input[type="submit"]:hover{
     border-radius: 10px 10px 0px 0px;
     background-color: #23395B;
 }
-#tablaArticulos{
-    margin-top: 3%;
+#articleTable{
+    margin: auto;
+    width: 98%;
 }
-#tablaArticulos thead{
+#articleTable thead{
     background-color:#fcfbff;
     color:#23395B;
+    text-align: center;
 }
 
 /*policy panel configuration*/
 
+#policyPanel{
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 88%;
+    background: #fcfbff;
+    border-radius: 10px;
+    box-shadow: 7px 13px 37px #000;
+}
+#policyPanel h1{
+    color: #fff;
+    font: 750 normal 25px sans-serif;
+    text-align: center;
+    padding: 2% 0 20px 0;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 1px solid silver;
+    background-color: #23395B;
+}
 #policyContent{
     width: 99.5%;
-    height: 89%;
+    height: 88%;
     margin-left: 0.5%;
     overflow: auto;
+}
+
+/*acountting panel configuration*/
+
+#acounttingPanel{
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26%;
+    background: #fcfbff;
+    border-radius: 10px;
+    box-shadow: 7px 13px 37px #000;
+    overflow: auto;
+}
+
+#acounttingPanel h1{
+    color: #fff;
+    font: 750 normal 25px sans-serif;
+    text-align: center;
+    padding: 2% 0 20px 0;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #23395B;
+}
+
+#acounttingContent{
+    width: 99.5%;
+    height: 88%;
+    padding: 3%;
+    text-align: justify;
 }
 
 /*Register panel configuration*/

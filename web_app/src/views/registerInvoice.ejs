@@ -1,0 +1,18 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+  <img id="logo" src="../images/logo.png">
+  <div class="registerPanel">
+    <h1>Registrar factura</h1>
+    <form action="/postInvoice" method="POST">
+      <div class="txt_fieldRegister">
+        <input type="text" class="inputFieldRegister" name="date" required>
+        <span></span>
+        <label>Órden de compra asociada</label>
+      </div>
+      <input class="botons" type="submit" value="Registrar">
+    </form>
+  </div>
+</section>
+
+<%- include('partials/_footer'); %>

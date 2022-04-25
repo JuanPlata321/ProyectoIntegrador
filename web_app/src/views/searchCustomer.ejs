@@ -1,49 +1,35 @@
 <%- include('partials/_header'); %>
 
 <section class="header">
-    <img id="logo" src="../images/logo.png">
     <div id="searchitemPanel">
         <h1>Clientes asociados a la concesionaria</h1>
-        <table id="tablaArticulos" style="width:100%">
+        <table id="articleTable" class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>CÉDULA / NIT</th>
                     <th>NOMBRES</th>                                
-                    <th>APELLIDOS</th>
-                    <th>CORREO ELECTRONICO</th>
+                    <th>CORREO ELECTRÓNICO</th>
                     <th>CONTACTO</th>                                
-                    <th>DIRECCCIÓN</th>                                               
+                    <th>DIRECCCIÓN</th>                                           
                 </tr>
             </thead>
             <tbody>
+                <% if (data) { %>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].ID_CLIENTE %></td>
+                        <td><%= data[i].CEDULA_NIT %></td>
+                        <td><%= data[i].NOMBRES %></td>
+                        <td><%= data[i].CORREO_ELECTRONICO %></td>
+                        <td><%= data[i].CONTACTO %></td>
+                        <td><%= data[i].DIRECCION %></td>
+                    </tr>
+                    <% } %>
+                <% } %>
             </tbody>
         </table>
-        <!--<form action="/getCustomers" method="GET">
-            <input type="submit" value="Buscar"></input>
-        </form>-->
     </div>
 </section>
-<!--<script>
-    $(document).ready(function() {   
-        var url = 'http://localhost:443/getClients';
-    
-            $('#tablaArticulos').DataTable({            
-                "ajax":{
-                    "url": url,
-                    "dataSrc":""
-                },
-                "columns":[
-                    {"data":"ID_CLIENTE"},
-                    {"data":"CEDULA"},
-                    {"data":"NOMBRE"},
-                    {"data":"APELLIDO"},
-                    {"data":"CORREO_ELECTRONICO"},
-                    {"data":"CONTACTO"},
-                    {"data":"DIRECCION"},
-                ]
-            });
-    });
-</script>-->
 
 <%- include('partials/_footer'); %>

@@ -1,0 +1,31 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+    <div id="searchitemPanel">
+        <h1>Facturas generadas por la concesionaria</h1>
+        <table id="articleTable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FECHA DE EMISIÓN</th>                              
+                    <th>DATOS LEGALES DE MASHIN</th>
+                    <th>ORDEN DE COMPRA ASOCIADA</th>                                         
+                </tr>
+            </thead>
+            <tbody>
+                <% if (data) { %>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].ID_FACTURA %></td>
+                        <td><%= data[i].FECHA_EMISION_FACTURA %></td>
+                        <td><%= data[i].DATOS_EMPRESA %></td>
+                        <td><%= data[i].ORDEN_COMPRA_ID_ORDEN_COMPRA %></td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<%- include('partials/_footer'); %>

@@ -1,0 +1,42 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+  <img id="logo" src="../images/logo.png">
+  <div class="registerPanel">
+    <h1>Registrar órden de compra</h1>
+    <form action="/postPurchaseOrder" method="POST">
+        <div class="txt_fieldRegister">
+            <input type="text" class="inputFieldRegister" name="name" required>
+            <span></span>
+            <label>Nombre del responsable</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+            <input type="text" class="inputFieldRegister" name="discount" required>
+            <span></span>
+            <label>Porcentaje de descuento en número entero</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+            <input type="text" class="inputFieldRegister" name="tax" required>
+            <span></span>
+            <label>Porcentaje de impuesto en número entero</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+            <input type="text" class="inputFieldRegister" name="idCustomer" required>
+            <span></span>
+            <label>ID del cliente asociado</label>
+        </div>
+      
+        <div class="txt_fieldRegister">
+            <input type="text" class="inputFieldRegister" name="idEmployee" required>
+            <span></span>
+            <label>ID del empleado asociado</label>
+        </div>
+      <input class="botons" type="submit" value="Registrar">
+    </form>
+  </div>
+</section>
+
+<%- include('partials/_footer'); %>

@@ -1,0 +1,24 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+  <img id="logo" src="../images/logo.png">
+  <div class="registerPanel">
+    <h1>Asociar órden de compra con un vehículo</h1>
+    <form action="/postPurchaseOrderVehicle" method="POST">
+        <div class="txt_fieldRegister">
+            <input type="text" class="inputFieldRegister" name="idPurchaseOrder" required>
+            <span></span>
+            <label>ID órden de compra</label>
+        </div>
+
+        <div class="txt_fieldRegister">
+          <input type="text" class="inputFieldRegister" name="idVehicle" required>
+          <span></span>
+          <label>ID vehículo asociado</label>
+      </div>
+      <input class="botons" type="submit" value="Registrar">
+    </form>
+  </div>
+</section>
+
+<%- include('partials/_footer'); %>

@@ -1,0 +1,20 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+  <img id="logo" src="/images/logo.png">
+  <div id="acounttingPanel">
+    <h1>Informe de contabilidad</h1>
+    <div id="acounttingContent">
+      <p>La concesionaria Mashin en sus fines comerciales informa que ha realizado un total de 
+        <%= data[0].ORDENES_COMPRA %> <b>órdenes de compra</b>, las cuales suman $<%= data[0].ORDENES_COMPRA_TOTAL %>,
+        además con base en estas órdenes se tiene que han expedido un total de <%= data[1].ORDENES_COMPRA %> <b>facturas</b>, las cuales 
+        suman $<%= data[1].ORDENES_COMPRA_TOTAL %>. Con lo anterior en mente, se informa que se ha tenido un 
+        total de perdidas por $0, un total de ganancias por $<%= data[1].ORDENES_COMPRA_TOTAL %>, un total de 
+        deudas por pagar por $0 y un total de cuentas por cobrar por 
+        $<%= Number(data[0].ORDENES_COMPRA_TOTAL - Number(data[1].ORDENES_COMPRA_TOTAL)) %> .
+      </p>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/_footer'); %>

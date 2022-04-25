@@ -1,5 +1,6 @@
 const connection = require('../database/database.js');
 const alert = require('alert');
+const { NULL } = require('mysql/lib/protocol/constants/types');
 const controller = {}
 
 controller.init = (req, res) => {
@@ -20,9 +21,9 @@ controller.login = (req, res) => {
         if (results.length > 0){
             if (results[0].ESTADO_EMPLEADO_ID_ESTADO_EMPLEADO == '1'){
                 if (results[0].DEPARTAMENTO_AREA_ID_DEPARTAMENTO_AREA == '1'){
-                    res.render('adminDashboard');
+                    res.render('DashboardAdmin');
                 }else{
-                    res.render('userDashboard');
+                    res.render('DashboardUser');
                 }
             }else{
                 res.render('login');
@@ -36,68 +37,165 @@ controller.login = (req, res) => {
 };
 
 controller.goSearchCustomer = (req, res) => {
-    res.render('searchCustomer');
+    connection.query('SELECT * FROM CLIENTES', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchCustomer', {
+                data: results
+            });
+        }
+    });
 }
 
-controller.goSearchVehicle = (req, res) => {
-    res.render('searchVehicle');
+controller.goSearchInvoice = (req, res) => {
+    connection.query('SELECT * FROM FACTURAS', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchInvoice', {
+                data: results
+            });
+        }
+    });
+}
+
+controller.goSearchWarranty = (req, res) => {
+    connection.query('SELECT * FROM GARANTIAS', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchWarranty', {
+                data: results
+            });
+        }
+    });
+}
+
+controller.goSearchPurchaseOrder = (req, res) => {
+    connection.query('SELECT ID_ORDEN_COMPRA, FECHA_EMISION_ORDEN, NOMBRE_RESPONSABLE, PORCENTAJE_DESCUENTOS, IMPUESTOS, IMPUESTOS, SUBTOTAL, VALOR_TOTAL, CLIENTE_ID_CLIENTE, EMPLEADOS_ID_EMPLEADO, VEHICULOS_ID_VEHICULOS FROM ORDEN_COMPRA, ORDEN_COMPRA_has_VEHICULOS WHERE ID_ORDEN_COMPRA = ORDEN_COMPRA_ID_ORDEN_COMPRA ORDER BY ID_ORDEN_COMPRA', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchPurchaseOrder', {
+                data: results
+            });
+        }
+    });
 }
 
 controller.goSearchUser = (req, res) => {
-    res.render('searchUser');
+    connection.query('SELECT * FROM EMPLEADOS', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchUser', {
+                data: results
+            });
+        }
+    });
 }
 
-controller.goAcounttingReport = (req, res) => {
-    res.render('acounttingReport');
+controller.goSearchVehicle = (req, res) => {
+    connection.query('SELECT * FROM VEHICULOS', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchVehicle', {
+                data: results
+            });
+        }
+    });
 }
 
-controller.goPurchaseOrder = (req, res) => {
-    res.render('purchaseOrderRegister');
+controller.goSearchVehicleRegister = (req, res) => {
+    connection.query('SELECT * FROM REGISTRO_MOVIMIENTO_VEHICULOS ORDER BY ID_REGISTRO_MOVIMIENTO_VEHICULOS DESC', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchVehicleRegister', {
+                data: results
+            });
+        }
+    });
 }
 
-controller.goDataPolicy = (req, res) => {
-    res.render('dataPolicy');
+controller.goSearchPriceHistory = (req, res) => {
+    connection.query('SELECT * FROM HISTORICO_PRECIO', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchPriceHistory', {
+                data: results
+            });
+        }
+    });
+}
+
+controller.goSearchAcounttingReport = (req, res) => {
+    connection.query('SELECT COUNT(ID_ORDEN_COMPRA) \'ORDENES_COMPRA\', SUM(VALOR_TOTAL) \'ORDENES_COMPRA_TOTAL\' FROM ORDEN_COMPRA UNION ALL SELECT COUNT(ID_FACTURA) \'FACTURAS\', SUM(VALOR_TOTAL) \'FACTURAS_COMPRA_TOTAL\' FROM ORDEN_COMPRA, FACTURAS WHERE ID_ORDEN_COMPRA = ORDEN_COMPRA_ID_ORDEN_COMPRA', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchAcounttingReport', {
+                data: results
+            });
+        }
+    });
+}
+
+controller.goRegisterPurchaseOrderVehicle = (req, res) => {
+    res.render('registerPurchaseOrderVehicle');
+}
+
+controller.goSearchDataPolicy = (req, res) => {
+    res.render('searchDataPolicy');
 }
 
 controller.goRegisterCustomer = (req, res) => {
     res.render('registerCustomer');
 }
 
-controller.goRegisterVehicle = (req, res) => {
-    res.render('registerVehicle');
+controller.goRegisterInvoice = (req, res) => {
+    res.render('registerInvoice');
+}
+
+controller.goRegisterPurchaseOrder = (req, res) => {
+    res.render('registerPurchaseOrder');
 }
 
 controller.goRegisterUser = (req, res) => {
     res.render('registerUser');
 }
 
-controller.getVehicles = (req, res) => {
-    connection.query('SELECT * FROM VEHICULOS', (error, results) => {
-        if (error){
-            alert('Ups! Algo ha salido mal al realziar la consulta a la base de datos');
+controller.goRegisterVehicle = (req, res) => {
+    res.render('registerVehicle');
+}
+
+controller.postPurchaseOrderVehicle = (req, res) => {
+    let data = {ORDEN_COMPRA_ID_ORDEN_COMPRA: req.body.idPurchaseOrder, VEHICULOS_ID_VEHICULOS:req.body.idVehicle};
+    let sql = "INSERT INTO ORDEN_COMPRA_has_VEHICULOS SET ?";
+    
+    connection.query(sql, data, function (error, results) {
+        res.render('registerPurchaseOrderVehicle');
+        if(error){
+            alert('Ups! Tuvimos problemas al asociar el vehículo con la orden de compra, revisa los campos ingresados, seguramente algunos ya están en uso o el vehículo u orden de compra ingresada no existe, si el problema persiste contácte con el personal de soporte técnico');
         }else{
-            res.send(results);
+            alert('Registro realizado exitosamente!');
         }
     });
 }
 
-controller.getCustomers = (req, res) => {
-    connection.query('SELECT * FROM CLIENTES', (error, results) => {
-        if (error){
-            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
-            throw error;
+controller.postInvoice = (req, res) => {
+    let data = {FECHA_EMISION_FACTURA: '', DATOS_EMPRESA: '', ORDEN_COMPRA_ID_ORDEN_COMPRA:req.body.date};
+    let sql = "INSERT INTO FACTURAS SET ?";
+    
+    connection.query(sql, data, function (error, results) {
+        res.render('registerInvoice');
+        if(error){
+            alert('Ups! Tuvimos problemas al realizar el registro del vehículo, revisa los campos ingresados, seguramente algunos ya están en uso y si el problema persiste contácte con el personal de soporte técnico');
         }else{
-            res.send(results);
-        }
-    });
-}
-
-controller.getUsers = (req, res) => {
-    connection.query('SELECT * FROM EMPLEADO', (error, results) => {
-        if (error){
-            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
-        }else{
-            res.send(results);
+            alert('Registro realizado exitosamente!');
         }
     });
 }
@@ -110,6 +208,20 @@ controller.postVehicles = (req, res) => {
         res.render('registerVehicle');
         if(error){
             alert('Ups! Tuvimos problemas al realizar el registro del vehículo, revisa los campos ingresados, seguramente algunos ya están en uso y si el problema persiste contácte con el personal de soporte técnico');
+        }else{
+            alert('Registro realizado exitosamente!');
+        }
+    });
+}
+
+controller.postPurchaseOrder = (req, res) => {
+    let data = {nombre_responsable:req.body.name, porcentaje_descuentos:req.body.discount, impuestos:req.body.tax, cliente_id_cliente:req.body.idCustomer, empleados_id_empleado:req.body.idEmployee};
+    let sql = "INSERT INTO ORDEN_COMPRA SET ?";
+    
+    connection.query(sql, data, function (error, results) {
+        res.render('registerPurchaseOrder');
+        if(error){
+            alert('Ups! Tuvimos problemas al realizar el registro de la orden de compra, revisa los campos ingresados, si el problema persiste contácte con el personal de soporte técnico');
         }else{
             alert('Registro realizado exitosamente!');
         }

@@ -1,0 +1,43 @@
+<%- include('partials/_header'); %>
+
+<section class="header">
+    <div id="searchitemPanel">
+        <h1>Órdenes de compra generadas por la concesionaria</h1>
+        <table id="articleTable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FECHA DE EMISIÓN</th>
+                    <th>NOMBRE DEL RESPONSABLE</th>                                
+                    <th>PORCENTAJE DE DESCUENTO</th>
+                    <th>IMPUESTOS</th>
+                    <th>SUBTOTAL</th>
+                    <th>VALOR TOTAL</th>
+                    <th>CLIENTE ASOCIADO</th>
+                    <th>EMPLEADO ASOCIADO</th>
+                    <th>VEHÍCULO ASOCIADO</th>                                           
+                </tr>
+            </thead>
+            <tbody>
+                <% if (data) { %>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].ID_ORDEN_COMPRA %></td>
+                        <td><%= data[i].FECHA_EMISION_ORDEN %></td>
+                        <td><%= data[i].NOMBRE_RESPONSABLE %></td>
+                        <td><%= data[i].PORCENTAJE_DESCUENTOS %></td>
+                        <td><%= data[i].IMPUESTOS %></td>
+                        <td><%= data[i].SUBTOTAL %></td>
+                        <td><%= data[i].VALOR_TOTAL %></td>
+                        <td><%= data[i].CLIENTE_ID_CLIENTE %></td>
+                        <td><%= data[i].EMPLEADOS_ID_EMPLEADO %></td>
+                        <td><%= data[i].VEHICULOS_ID_VEHICULOS %></td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<%- include('partials/_footer'); %>

@@ -1,10 +1,9 @@
 <%- include('partials/_header'); %>
 
 <section class="header">
-    <img id="logo" src="../images/logo.png">
     <div id="searchitemPanel">
         <h1>Inventario de vehículos</h1>
-        <table id="tablaArticulos" style="width:100%">
+        <table id="articleTable" class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -15,42 +14,28 @@
                     <th>TIPO</th>                                
                     <th>IMAGEN</th>
                     <th>UNIDADES EN STOCK</th>
-                    <th>VALOR UNITARIO</th>                                                   
+                    <th>VALOR UNITARIO</th>                                                  
                 </tr>
             </thead>
             <tbody>
+                <% if (data) { %>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].ID_VEHICULOS %></td>
+                        <td><%= data[i].MARCA %></td>
+                        <td><%= data[i].MODELO %></td>
+                        <td><%= data[i].AÑO %></td>
+                        <td><%= data[i].DESCRIPCION %></td>
+                        <td><%= data[i].TIPO %></td>
+                        <td><%= data[i].IMAGEN_URL %></td>
+                        <td><%= data[i].UNIDADES_STOCK %></td>
+                        <td><%= data[i].VALOR_UNITARIO %></td>
+                    </tr>
+                    <% } %>
+                <% } %>
             </tbody>
         </table>
     </div>
 </section>
-<!--<script>
-    $(document).ready(function() {   
-        var url = 'http://localhost:443/getVehicles';
-    
-            $('#tablaArticulos').DataTable({            
-                "ajax":{
-                    "url": url,
-                    "dataSrc":""
-                },
-                "columns":[
-                    {"data":"ID_VEHICULOS"},
-                    {"data":"MARCA"},
-                    {"data":"MODELO"},
-                    {"data":"AÑO"},
-                    {"data":"DESCRIPCION"},
-                    {"data":"TIPO"},
-                    {"data":"IMAGEN_URL"},
-                    {"data":"UNIDADES_STOCK"},
-                    {"data":"VALOR_UNITARIO"},
-                ],
-                "columnDefs":[{
-                    "targets":[9],
-                    render(v){
-                        return Number(v).toFixed(2)
-                    }
-                }]
-            });
-    });
-</script>-->
 
 <%- include('partials/_footer'); %>
