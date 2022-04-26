@@ -30,11 +30,23 @@ controller.login = (req, res) => {
                 alert('Tu cuenta se encuentra actualmente actualmente en mantenimiento o dada de baja en el sistema, por favor contáctate el personal de soporte técnico!');
             }
         }else{
-            res.sendFile('login');
+            res.render('login');
             alert('Usuario y/o contraseña incorrecta!');
         }
     });
 };
+
+controller.goSearchCustomerQuestions = (req, res) => {
+    connection.query('SELECT * FROM FORMULARIO', (error, results) => {
+        if (error){
+            alert('Ups! Algo ha salido mal al realizar la consulta a la base de datos');
+        }else{
+            res.render('searchCustomerQuestions', {
+                data: results
+            });
+        }
+    });
+}
 
 controller.goSearchCustomer = (req, res) => {
     connection.query('SELECT * FROM CLIENTES', (error, results) => {

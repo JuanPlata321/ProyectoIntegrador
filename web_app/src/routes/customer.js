@@ -6,6 +6,7 @@ const customerController = require('../controllers/customerController');
 router.get('/', customerController.init);
 router.post('/login', customerController.login);
 
+router.get('/goSearchCustomerQuestions', customerController.goSearchCustomerQuestions);
 router.get('/goSearchCustomer', customerController.goSearchCustomer);
 router.get('/goSearchInvoice', customerController.goSearchInvoice);
 router.get('/goSearchWarranty', customerController.goSearchWarranty);
