@@ -53,7 +53,7 @@
 <div id="title-sect">
 <h1>MashinDataBase<br> Data Dictionay</h1>
 <p>
-<em>2022-04-24</em>
+<em>2022-04-26</em>
 </p>
 <p class="proj-desc">
 <em></em>
@@ -66,6 +66,7 @@
 <li><a href='#EMPLEADOS'>EMPLEADOS</a></li>
 <li><a href='#ESTADO_EMPLEADO'>ESTADO_EMPLEADO</a></li>
 <li><a href='#FACTURAS'>FACTURAS</a></li>
+<li><a href='#FORMULARIO'>FORMULARIO</a></li>
 <li><a href='#GARANTIAS'>GARANTIAS</a></li>
 <li><a href='#HISTORICO_PRECIO'>HISTORICO_PRECIO</a></li>
 <li><a href='#LOGS_SISTEMA'>LOGS_SISTEMA</a></li>
@@ -465,6 +466,74 @@
     <td class='attr'>&nbsp;</td>
     <td></td>
     <td>Este campo ID hace referencia al indice de una orden de compra dentro del conjunto de las mismas registrados en el sistema de la concesionaria con la cual se genero la factura de venta</td>
+</tr>
+<table id='FORMULARIO'>
+<caption>FORMULARIO</caption>
+<tr><td colspan='11'></td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>ID_FORMULARIO</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td>Este campo ID hace referencia al indice de un formulario de resolucion de dudas e inquietudes que realiza el usuario y que se almacena dentro de la base de datos</td>
+</tr>
+<tr>
+    <td>CORREO_ELECTRONICO</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al correo electronico de la persona quien realiza la consulta o pregunta</td>
+</tr>
+<tr>
+    <td>ASUNTO</td>
+    <td>VARCHAR(90)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia al asunto o tema sobre el cual esta preguntando la persona que reliza el formulario</td>
+</tr>
+<tr>
+    <td>COMENTARIO</td>
+    <td>VARCHAR(500)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td>Este campo hace referencia a la descripcion detallada de la consulta que realiza la persona a traves del formulario</td>
 </tr>
 <table id='GARANTIAS'>
 <caption>GARANTIAS</caption>
