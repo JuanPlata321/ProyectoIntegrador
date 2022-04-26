@@ -1,0 +1,56 @@
+<%- include('partials/_generalHeader'); %>
+
+<body>
+    <section class="sub-header">
+        <%- include('partials/_nav'); %>
+        <h1>Contáctanos</h1>
+    </section>
+
+<!---------Contact us--------->
+
+
+
+<section class="contact-us">
+    <p>Tu opinión y tus comentarios son muy importantes para nosotros. Nos aseguraremos de revisar tus comentarios y darte respuesta tan pronto como nos sea posible.</p>
+    <div id="row">
+        <div>
+            <form action='/postForm' method='POST' class="contact-col">
+                <input type="text" placeholder="Nombre" name='name' required>
+                <input type="email" placeholder="Email" name='email' required>
+                <input type="text" placeholder="Asunto" name='subject' required>
+                <textarea rows="8" placeholder="Comentario" name='comment' required></textarea><br>
+                <button type="submit" class="hero-btn red-btn">CONTÁCTANOS</button>
+            </form>
+        </div>
+        <div id="contact-col" class="contact-col">
+            <div>
+               <!-- <img src="/images/house-solid.svg" alt="Nuestra ubicacion" width="25" height="25"> -->
+                <span>
+                    <h5>Autopista Piedecuesta Kilómetro 7</h5>
+                    <p>Floridablanca, Santander</p>
+                </span>
+            </div>
+	    
+            <div>
+                <!-- <img src="/images/phone-solid.svg" alt="Nuestro numero de contacto" width="25" height="25"> -->
+                <span>
+                    <h5>+57 6552513</h5>
+                    <p>Lunes a sábado, 6AM to 6PM</p>
+                </span>
+            </div>
+	    
+            <div>
+              <!-- <img src="/images/envelope-solid.svg" alt="Nuestra correo de contacto" width="25" height="25"> -->
+                <span>
+                    <h5>info@mashin.com.co</h5>
+                    <p>Envíanos un correo electrónico con tu consulta</p>
+                </span>
+            </div>
+        </div>
+    </div>
+
+</section>
+    
+<!---------Footer--------->
+
+<%- include('partials/_footer'); %>

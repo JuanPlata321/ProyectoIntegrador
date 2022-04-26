@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <script src="../js/56a8804a8a.js" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, 
-    initial-scale=1.0">
-    <title>Concesionaria Mashin</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+<%- include('partials/_generalHeader'); %>
+
 <body>
     <section class="header">
-        <nav>
-            <a href="index.html"><img src="../images/logo.png"></a>
-            <div class="nav-links" id="navLinks">
-            <i class="fa fa-times" onclick="hideMenu()" aria-hidden="true"></i>
-                <ul>
-                    <li><a href=" ./index.html">INICIO</a></li>
-                    <li><a href="./about.html">SOBRE NOSOTROS</a></li>
-                    <li><a href="./nuestrosProductos.html">NUESTROS PRODUCTOS</a></li>
-                    <li><a href="./contact.html">CONTÁCTANOS</a></li>
-                    <li><a href="./proteccionDatos.html">POLITICA DE DATOS</a></li>
-                </ul>
-            </div>
-            <i class="fa fa-bars" onclick="showMenu()" aria-hidden="true"></i>
-        </nav>
-    <div class="text-box">
-        <h1>La mejor Concesionaria del país</h1>
-        <p>En Mashin buscamos darle la mejor experiencia en su 
-        búsqueda <br>por el mejor vehículo al mejor precio que pueda encontrar</p>
-        <a href="/contact.html" class="hero-btn">VISÍTANOS PARA SABER MÁS DE NOSOTROS</a>
-    </div>
+        <%- include('partials/_nav'); %>
+        <div class="text-box">
+            <h1>La mejor Concesionaria del país</h1>
+            <p>En Mashin buscamos darle la mejor experiencia en su 
+            búsqueda <br>por el mejor vehículo al mejor precio que pueda encontrar</p>
+            <a href="/contact" class="hero-btn">VISÍTANOS PARA SABER MÁS DE NOSOTROS</a>
+        </div>
     </section>
 
     <!-----Course----->
@@ -82,33 +61,6 @@
     </div>
 </section>
 
-<!-------Facilities------->
-
-<!------
-<section class="facilities">
-    <h1>Our Facilities</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-    <div class="row">
-        <div class="facilities-col">
-            <img src="images/library.png">
-            <h3>World Class Library</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        <div class="facilities-col">
-            <img src="images/basketball.png">
-            <h3>Largest Playground</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        <div class="facilities-col">
-            <img src="images/cafeteria.png">
-            <h3>Tasty and Healthy Food</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-    </div>
-</section>
----->
-
 <!----------Testimonials----------->
 
 
@@ -149,35 +101,9 @@
 
 <section class="cta">
     <h1>¿Deseas saber más sobre nosotros y nuestros productos?</h1>
-    <a href="./contact.html" class="hero-btn">CONTÁCTANOS</a>
+    <a href="/contact" class="hero-btn">CONTÁCTANOS</a>
 </section>
 
 <!---------Footer--------->
 
-<section class="footer">
-    <h4>Sobre nosotros</h4>
-    <p>Aparte de nuestros contactos con nuestros trabajadores, también <br>puede ver nuestras redes sociales para poder saber más sobre nosotros.</p>
-    <div class="icons">
-        <img src="../images/facebook-f-brands.svg" alt="facebook" width="25" height="25">
-	<img src="../images/twitter-brands.svg" alt="twitter" width="25" height="25">
-	<img src="../images/instagram-brands.svg" alt="instagram" width="25" height="25">
-	<img src="../images/youtube-brands.svg" alt="youtube" width="25" height="25">
-    </div>
-</section>
-
-<!------JavaScript for Toggle Menu------>
-<script>
-
-    var navLinks = document.getElementById("navLinks");
-    function showMenu(){
-        navLinks.style.right = "0";
-    }
-    function hideMenu(){
-        navLinks.style.right = "-200px"
-    }
-
-</script>
-
-
-</body>
-</html>
+<%- include('partials/_footer'); %>

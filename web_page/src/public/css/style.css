@@ -437,19 +437,35 @@ h3{
 textarea{
     font-size: 14px;
 }
-.datos-col{
-    flex-basis: 100%;
-    padding: 30px 2px;
-}
 .datos-us{
     width: 50%;
     margin: auto;
-    padding-top: 80px;
+    padding-top: 2%;
     padding-bottom: 50px;
+}
+.datos-us h3{
+    text-align: left;
 }
 .datos-col h1{
     padding-top: 0;
 }
+.datos-col h3{
+    text-align: left;
+}
 #divTable{
     margin-top: 5%;
+}
+#articleTable{
+    margin: 2% auto 2% auto;
+    width: 98%;
+}
+#articleTable thead{
+    color:#23395B;
+    text-align: center;
+}
+#articleTable tbody{
+    text-align: center;
+}
+#thDescription{
+    text-align: left;
 }
